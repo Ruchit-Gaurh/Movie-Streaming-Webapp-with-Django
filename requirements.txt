@@ -19,3 +19,5 @@
 # C:\Users\admin\Documents\viki clone\kdrama\main_kdrama\views.py: 2
 # C:\Users\admin\Documents\viki clone\kdrama\manage.py: 11
 Django == 3.2
+gunicorn
+django-heroku
