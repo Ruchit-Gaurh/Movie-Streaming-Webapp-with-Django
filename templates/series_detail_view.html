@@ -1,0 +1,313 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/series_detail.css' %}">
+    <link rel="shortcut icon" type="image/jpg" href="{% static 'favicon.ico' %}"/>
+    <title>Watch {{serie_view.title}} Online Free | KDramaLove</title>
+</head>
+<body>
+    <div class="nav">
+        <a href="/">
+            <img src="{% static 'imgbin_drama-youtube-logo-television-show-png.png' %}" alt="" class="nav_logo">
+        </a>
+        <div class="search_container">
+          <form class="search_Form" action="/search/results" method="get">
+              <input class="query" name="query" id="query" type="search" placeholder="Search" value="{{query}}">
+              <button class="search_btn" type="submit"><i class="fa fa-search"></i></button>
+          </form>
+        </div>
+      </div>
+    <header class="banner">
+        <style>
+            @media screen and (max-width: 414px) {
+                .banner_contents{
+                    background-image: url({{serie_view.img}});
+                }
+            }
+            @media screen and (min-width: 600px) {
+                .banner_contents{
+                    background-image: url({{serie_view.min_width600}});
+                }
+            }
+            @media screen and (min-width: 960px) {
+                .banner_contents{
+                    background-image: url({{serie_view.min_width960}});
+                }
+            }
+            @media screen and (min-width: 1440px) {
+                .banner_contents{
+                    background-image: url({{serie_view.min_width1440}});
+                }
+            }
+            @media screen and (min-width: 1600px) {
+                .banner_contents{
+                    background-image: url({{serie_view.min_width1600}});
+                }
+            }
+        </style>
+        <a  style="text-decoration: none; color: white;">
+          <div class="banner_contents" style="background-size: cover;">
+              <div class="banner_content">
+                  <h1 class="banner_title">
+                      {{serie_view.title}}
+                  </h1>
+                  <h2 class="korean_title">
+                      {{serie_view.korean_title}}
+                  </h2>
+                  <div class="yearandepi">
+                      <div class="seriesyer">
+                        {{serie_view.year}}
+                      </div>
+                      <div class="serieepi">
+                        {{serie_view.episodes}}&nbsp; <div class="episod">episodes</div>
+                      </div>
+                      
+                  </div>
+
+                  <div class="genres">
+                      <div class="genre" style="color: rgba(255, 255, 255, 0.5); font-weight: bold;">Genres:</div> &nbsp;{{serie_view.genres}}
+                  </div>
+                  <div class="cast">
+                    <div class="subcast" style="color: rgba(255, 255, 255, 0.5); font-weight: bold;">Cast:</div>&nbsp;
+                      {{serie_view.cast}}
+                  </div>
+                  <div class="banner_buttons">
+                    <a href="{{ep1_url}}" style="text-decoration: none; color: white;">
+                      <button class="banner_button">Ep. 1</button>
+                    </a>
+                      <button class="banner_button">My List</button>
+                  </div>
+
+                  <h1 class="banner_description">{{serie_view.image_description|truncatechars:150}}</h1>
+              </div>
+              <div class="banner_fadebottom"></div>
+          </div>
+        </a>
+    </header>
+    <div class="mainsection">
+
+        <div class="row">
+            <h2 style="margin-left: 20px;">{{serie_view.title}}</h2>
+    
+            <div class="row_posters">
+                {% if 1 <= serie_view.episodes%}
+                    <a class="row_poster1" style="padding: 0; margin: 0; text-decoration: none;" href="{{serie_view.url}}/episode1">
+                        <img  class="row_poster" src="{{serie_view.img}}" alt="">
+                        <p class="episodeonimg">Ep. 1</p>
+                    </a>
+                {% endif %}
+                {% if 2 <= serie_view.episodes%}
+                    <a class="row_poster1" style="padding: 0; margin: 0; text-decoration: none;" href="{{serie_view.url}}/episode2">
+                        <img  class="row_poster" src="{{serie_view.img}}" alt="">
+                        <p class="episodeonimg">Ep. 2</p>
+                    </a>
+                {% endif %}
+                {% if 3 <= serie_view.episodes%}
+                    <a class="row_poster1" style="padding: 0; margin: 0; text-decoration: none;" href="{{serie_view.url}}/episode3">
+                        <img  class="row_poster" src="{{serie_view.img}}" alt="">
+                        <p class="episodeonimg">Ep. 3</p>
+                    </a>
+                {% endif %}
+                {% if 4 <= serie_view.episodes%}
+                    <a class="row_poster1" style="padding: 0; margin: 0; text-decoration: none;" href="{{serie_view.url}}/episode4">
+                        <img  class="row_poster" src="{{serie_view.img}}" alt="">
+                        <p class="episodeonimg">Ep. 4</p>
+                    </a>
+                {% endif %}
+                {% if 5 <= serie_view.episodes%}
+                    <a class="row_poster1" style="padding: 0; margin: 0; text-decoration: none;" href="{{serie_view.url}}/episode5">
+                        <img  class="row_poster" src="{{serie_view.img}}" alt="">
+                        <p class="episodeonimg">Ep. 5</p>
+                    </a>
+                {% endif %}
+                {% if 6 <= serie_view.episodes%}
+                    <a class="row_poster1" style="padding: 0; margin: 0; text-decoration: none;" href="{{serie_view.url}}/episode6">
+                        <img  class="row_poster" src="{{serie_view.img}}" alt="">
+                        <p class="episodeonimg">Ep. 6</p>
+                    </a>
+                {% endif %}
+                {% if 7 <= serie_view.episodes%}
+                    <a class="row_poster1" style="padding: 0; margin: 0; text-decoration: none;" href="{{serie_view.url}}/episode7">
+                        <img  class="row_poster" src="{{serie_view.img}}" alt="">
+                        <p class="episodeonimg">Ep. 7</p>
+                    </a>
+                {% endif %}
+                {% if 8 <= serie_view.episodes%}
+                    <a class="row_poster1" style="padding: 0; margin: 0; text-decoration: none;" href="{{serie_view.url}}/episode8">
+                        <img  class="row_poster" src="{{serie_view.img}}" alt="">
+                        <p class="episodeonimg">Ep. 8</p>
+                    </a>
+                {% endif %}
+                {% if 9 <= serie_view.episodes%}
+                    <a class="row_poster1" style="padding: 0; margin: 0; text-decoration: none;" href="{{serie_view.url}}/episode9">
+                        <img  class="row_poster" src="{{serie_view.img}}" alt="">
+                        <p class="episodeonimg">Ep. 9</p>
+                    </a>
+                {% endif %}
+                {% if 10 <= serie_view.episodes%}
+                    <a class="row_poster1" style="padding: 0; margin: 0; text-decoration: none;" href="{{serie_view.url}}/episode10">
+                        <img  class="row_poster" src="{{serie_view.img}}" alt="">
+                        <p class="episodeonimg">Ep. 10</p>
+                    </a>
+                {% endif %}
+                {% if 11 <= serie_view.episodes%}
+                    <a class="row_poster1" style="padding: 0; margin: 0; text-decoration: none;" href="{{serie_view.url}}/episode11">
+                        <img  class="row_poster" src="{{serie_view.img}}" alt="">
+                        <p class="episodeonimg">Ep. 11</p>
+                    </a>
+                {% endif %}
+                {% if 12 <= serie_view.episodes%}
+                    <a class="row_poster1" style="padding: 0; margin: 0; text-decoration: none;" href="{{serie_view.url}}/episode12">
+                        <img  class="row_poster" src="{{serie_view.img}}" alt="">
+                        <p class="episodeonimg">Ep. 12</p>
+                    </a>
+                {% endif %}
+                {% if 13 <= serie_view.episodes%}
+                    <a class="row_poster1" style="padding: 0; margin: 0; text-decoration: none;" href="{{serie_view.url}}/episode13">
+                        <img  class="row_poster" src="{{serie_view.img}}" alt="">
+                        <p class="episodeonimg">Ep. 13</p>
+                    </a>
+                {% endif %}
+                {% if 14 <= serie_view.episodes%}
+                    <a class="row_poster1" style="padding: 0; margin: 0; text-decoration: none;" href="{{serie_view.url}}/episode14">
+                        <img  class="row_poster" src="{{serie_view.img}}" alt="">
+                        <p class="episodeonimg">Ep. 14</p>
+                    </a>
+                {% endif %}
+                {% if 15 <= serie_view.episodes%}
+                    <a class="row_poster1" style="padding: 0; margin: 0; text-decoration: none;" href="{{serie_view.url}}/episode15">
+                        <img  class="row_poster" src="{{serie_view.img}}" alt="">
+                        <p class="episodeonimg">Ep. 15</p>
+                    </a>
+                {% endif %}
+                {% if 16 <= serie_view.episodes%}
+                    <a class="row_poster1" style="padding: 0; margin: 0; text-decoration: none;" href="{{serie_view.url}}/episode16">
+                        <img  class="row_poster" src="{{serie_view.img}}" alt="">
+                        <p class="episodeonimg">Ep. 16</p>
+                    </a>
+                {% endif %}
+                {% if 17 <= serie_view.episodes%}
+                    <a class="row_poster1" style="padding: 0; margin: 0; text-decoration: none;" href="{{serie_view.url}}/episode17">
+                        <img  class="row_poster" src="{{serie_view.img}}" alt="">
+                        <p class="episodeonimg">Ep. 17</p>
+                    </a>
+                {% endif %}
+                {% if 18 <= serie_view.episodes%}
+                    <a class="row_poster1" style="padding: 0; margin: 0; text-decoration: none;" href="{{serie_view.url}}/episode18">
+                        <img  class="row_poster" src="{{serie_view.img}}" alt="">
+                        <p class="episodeonimg">Ep. 18</p>
+                    </a>
+                {% endif %}
+                {% if 19 <= serie_view.episodes%}
+                    <a class="row_poster1" style="padding: 0; margin: 0; text-decoration: none;" href="{{serie_view.url}}/episode19">
+                        <img  class="row_poster" src="{{serie_view.img}}" alt="">
+                        <p class="episodeonimg">Ep. 19</p>
+                    </a>
+                {% endif %}
+                {% if 20 <= serie_view.episodes%}
+                    <a class="row_poster1" style="padding: 0; margin: 0; text-decoration: none;" href="{{serie_view.url}}/episode20">
+                        <img  class="row_poster" src="{{serie_view.img}}" alt="">
+                        <p class="episodeonimg">Ep. 20</p>
+                    </a>
+                {% endif %}
+                {% if 21 <= serie_view.episodes%}
+                    <a class="row_poster1" style="padding: 0; margin: 0; text-decoration: none;" href="{{serie_view.url}}/episode21">
+                        <img  class="row_poster" src="{{serie_view.img}}" alt="">
+                        <p class="episodeonimg">Ep. 21</p>
+                    </a>
+                {% endif %}
+                {% if 22 <= serie_view.episodes%}
+                    <a class="row_poster1" style="padding: 0; margin: 0; text-decoration: none;" href="{{serie_view.url}}/episode22">
+                        <img  class="row_poster" src="{{serie_view.img}}" alt="">
+                        <p class="episodeonimg">Ep. 22</p>
+                    </a>
+                {% endif %}
+                {% if 23 <= serie_view.episodes%}
+                    <a class="row_poster1" style="padding: 0; margin: 0; text-decoration: none;" href="{{serie_view.url}}/episode23">
+                        <img  class="row_poster" src="{{serie_view.img}}" alt="">
+                        <p class="episodeonimg">Ep. 23</p>
+                    </a>
+                {% endif %}
+                {% if 24 <= serie_view.episodes%}
+                    <a class="row_poster1" style="padding: 0; margin: 0; text-decoration: none;" href="{{serie_view.url}}/episode24">
+                        <img  class="row_poster" src="{{serie_view.img}}" alt="">
+                        <p class="episodeonimg">Ep. 24</p>
+                    </a>
+                {% endif %}
+                {% if 25 <= serie_view.episodes%}
+                    <a class="row_poster1" style="padding: 0; margin: 0; text-decoration: none;" href="{{serie_view.url}}/episode25">
+                        <img  class="row_poster" src="{{serie_view.img}}" alt="">
+                        <p class="episodeonimg">Ep. 25</p>
+                    </a>
+                {% endif %}
+                {% if 26 <= serie_view.episodes%}
+                    <a class="row_poster1" style="padding: 0; margin: 0; text-decoration: none;" href="{{serie_view.url}}/episode26">
+                        <img  class="row_poster" src="{{serie_view.img}}" alt="">
+                        <p class="episodeonimg">Ep. 26</p>
+                    </a>
+                {% endif %}
+                {% if 27 <= serie_view.episodes%}
+                    <a class="row_poster1" style="padding: 0; margin: 0; text-decoration: none;" href="{{serie_view.url}}/episode27">
+                        <img  class="row_poster" src="{{serie_view.img}}" alt="">
+                        <p class="episodeonimg">Ep. 27</p>
+                    </a>
+                {% endif %}
+                {% if 28 <= serie_view.episodes%}
+                    <a class="row_poster1" style="padding: 0; margin: 0; text-decoration: none;" href="{{serie_view.url}}/episode28">
+                        <img  class="row_poster" src="{{serie_view.img}}" alt="">
+                        <p class="episodeonimg">Ep. 28</p>
+                    </a>
+                {% endif %}
+                {% if 29 <= serie_view.episodes%}
+                    <a class="row_poster1" style="padding: 0; margin: 0; text-decoration: none;" href="{{serie_view.url}}/episode29">
+                        <img  class="row_poster" src="{{serie_view.img}}" alt="">
+                        <p class="episodeonimg">Ep. 29</p>
+                    </a>
+                {% endif %}
+                {% if 30 <= serie_view.episodes%}
+                    <a class="row_poster1" style="padding: 0; margin: 0; text-decoration: none;" href="{{serie_view.url}}/episode30">
+                        <img  class="row_poster" src="{{serie_view.img}}" alt="">
+                        <p class="episodeonimg">Ep. 30</p>
+                    </a>
+                {% endif %}
+                {% if 31 <= serie_view.episodes%}
+                    <a class="row_poster1" style="padding: 0; margin: 0; text-decoration: none;" href="{{serie_view.url}}/episode31">
+                        <img  class="row_poster" src="{{serie_view.img}}" alt="">
+                        <p class="episodeonimg">Ep. 31</p>
+                    </a>
+                {% endif %}
+                {% if 32 <= serie_view.episodes%}
+                    <a class="row_poster1" style="padding: 0; margin: 0; text-decoration: none;" href="{{serie_view.url}}/episode32">
+                        <img  class="row_poster" src="{{serie_view.img}}" alt="">
+                        <p class="episodeonimg">Ep. 32</p>
+                    </a>
+                {% endif %}
+                    
+            </div> 
+        </div>
+        <div class="series_description">
+            {{serie_view.image_description}}
+        </div>
+
+        
+        
+    </div>
+    <script>
+
+        var nav = document.querySelector(".nav")
+  
+        window.addEventListener("scroll", function scrollhandlenav(){
+          {
+          if (window.scrollY > 100){
+            nav.classList.add("nav_black")
+          } else nav.classList.remove("nav_black") ;
+        }
+        });
+        
+      </script>
+</body>
+</html>

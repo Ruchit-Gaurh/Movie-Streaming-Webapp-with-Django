@@ -1,0 +1,412 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="{% static 'css/main.css' %}" />
+    <link rel="shortcut icon" type="image/jpg" href="{% static 'favicon.ico' %}"/>
+
+    <title>Watch Korean Dramas and Movies Online Free | KDramaLove</title>
+  </head>
+  <body>
+    <div class="nav">
+      <a href="/">
+        <img
+          src="{% static 'imgbin_drama-youtube-logo-television-show-png.png' %}"
+          alt=""
+          class="nav_logo"
+        />
+        
+      
+      </a>
+      <div class="search_container">
+        <form class="search_Form" action="/search/results" method="get">
+            <input class="query" name="query" id="query" type="search" placeholder="Search">
+            <button class="search_btn" type="submit"><i class="fa fa-search"></i></button>
+        </form>
+      </div>
+    </div>
+
+    <header class="banner">
+      <style>
+        @media screen and (max-width: 414px) {
+          .banner_contents {
+            background-image: url({{poster.img}});
+          }
+        }
+        @media screen and (min-width: 600px) {
+          .banner_contents {
+            background-image: url({{poster.min_width600}});
+          }
+        }
+        @media screen and (min-width: 960px) {
+          .banner_contents {
+            background-image: url({{poster.min_width960}});
+          }
+        }
+        @media screen and (min-width: 1440px) {
+          .banner_contents {
+            background-image: url({{poster.min_width1440}});
+          }
+        }
+        @media screen and (min-width: 1600px) {
+          .banner_contents {
+            background-image: url({{poster.min_width1600}});
+          }
+        }
+      </style>
+      <a
+        href="/series/{{poster.url}}"
+        style="text-decoration: none; color: white"
+      >
+        <div class="banner_contents" style="background-size: cover">
+          <div class="banner_content">
+            <h1 class="banner_title">{{poster.title}}</h1>
+
+            <div class="banner_buttons">
+              <a href="/series/{{poster.url}}/episode1" style="text-decoration: none; color: white">
+                <button class="banner_button">Ep. 1</button>
+              </a>
+              <button class="banner_button">My List</button>
+            </div>
+
+            <h1 class="banner_description">
+              {{poster.image_description|truncatechars:150}}
+            </h1>
+          </div>
+          <div class="banner_fadebottom"></div>
+        </div>
+      </a>
+    </header>
+    <div class="row">
+      <h2>Recently Added</h2>
+      <div class="row_posters" id="yourDiv">
+        {% for r in recent%}
+          <a style="text-decoration: none;" class="row_poster1" href="series/{{r.url}}">
+            <img class="row_poster" src="{{r.img}}" alt="" />
+            <h4 style="color: white;">{{r.title}}</h3>
+          </a>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="row">
+      <h2>{{cat1_name.0.title}}</h2>
+      <div class="row_posters" id="yourDiv2">
+        {% for r in cat1%}
+        <a class="row_poster1" href="series/{{r.url}}">
+          <img class="row_poster" src="{{r.serie_img}}" alt="" />
+        </a>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="row">
+      <h2>{{cat2_name.0.title}}</h2>
+      <div class="row_posters" id="yourDiv3">
+        {% for r in cat2%}
+        <a class="row_poster1" href="series/{{r.url}}">
+          <img class="row_poster" src="{{r.serie_img}}" alt="" />
+        </a>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="row">
+      <h2>{{cat3_name.0.title}}</h2>
+      <div class="row_posters" id="yourDiv4">
+        {% for r in cat3%}
+        <a class="row_poster1" href="series/{{r.url}}">
+          <img class="row_poster" src="{{r.serie_img}}" alt="" />
+        </a>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="row">
+      <h2>{{cat4_name.0.title}}</h2>
+      <div class="row_posters" id="yourDiv5">
+        {% for r in cat4%}
+        <a class="row_poster1" href="series/{{r.url}}">
+          <img class="row_poster" src="{{r.serie_img}}" alt="" />
+        </a>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="row">
+      <h2>{{cat5_name.0.title}}</h2>
+      <div class="row_posters" id="yourDiv6">
+        {% for r in cat5%}
+        <a class="row_poster1" href="series/{{r.url}}">
+          <img class="row_poster" src="{{r.serie_img}}" alt="" />
+        </a>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="row">
+      <h2>{{cat6_name.0.title}}</h2>
+      <div class="row_posters" id="yourDiv7">
+        {% for r in cat6%}
+        <a class="row_poster1" href="series/{{r.url}}">
+          <img class="row_poster" src="{{r.serie_img}}" alt="" />
+        </a>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="row">
+      <h2>{{cat7_name.0.title}}</h2>
+      <div class="row_posters" id="yourDiv8">
+        {% for r in cat7%}
+        <a class="row_poster1" href="series/{{r.url}}">
+          <img class="row_poster" src="{{r.serie_img}}" alt="" />
+        </a>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="row">
+      <h2>{{cat8_name.0.title}}</h2>
+      <div class="row_posters" id="yourDiv9">
+        {% for r in cat8%}
+        <a class="row_poster1" href="series/{{r.url}}">
+          <img class="row_poster" src="{{r.serie_img}}" alt="" />
+        </a>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="row">
+      <h2>{{cat9_name.0.title}}</h2>
+      <div class="row_posters" id="yourDiv10">
+        {% for r in cat9%}
+        <a class="row_poster1" href="series/{{r.url}}">
+          <img class="row_poster" src="{{r.serie_img}}" alt="" />
+        </a>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="row">
+      <h2>{{cat10_name.0.title}}</h2>
+      <div class="row_posters" id="yourDiv11">
+        {% for r in cat10%}
+        <a class="row_poster1" href="series/{{r.url}}">
+          <img class="row_poster" src="{{r.serie_img}}" alt="" />
+        </a>
+        {% endfor %}
+      </div>
+    </div>
+    
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      var nav = document.querySelector(".nav");
+
+      window.addEventListener("scroll", function scrollhandlenav() {
+        {
+          if (window.scrollY > 100) {
+            nav.classList.add("nav_black");
+          } else nav.classList.remove("nav_black");
+        }
+      });
+
+      (function() {
+    function scrollHorizontally(e) {
+        e = window.event || e;
+        var delta = Math.max(-1, Math.min(1, (e.wheelDelta || -e.detail)));
+        document.getElementById('yourDiv').scrollLeft -= (delta * 50); // Multiplied by 40
+        e.preventDefault();
+    }
+    if (document.getElementById('yourDiv').addEventListener) {
+        // IE9, Chrome, Safari, Opera
+        document.getElementById('yourDiv').addEventListener('mousewheel', scrollHorizontally, false);
+        // Firefox
+        document.getElementById('yourDiv').addEventListener('DOMMouseScroll', scrollHorizontally, false);
+    } else {
+        // IE 6/7/8
+        document.getElementById('yourDiv').attachEvent('onmousewheel', scrollHorizontally);
+    }
+})();
+      (function() {
+    function scrollHorizontally(e) {
+        e = window.event || e;
+        var delta = Math.max(-1, Math.min(1, (e.wheelDelta || -e.detail)));
+        document.getElementById('yourDiv2').scrollLeft -= (delta * 50); // Multiplied by 40
+        e.preventDefault();
+    }
+    if (document.getElementById('yourDiv2').addEventListener) {
+        // IE9, Chrome, Safari, Opera
+        document.getElementById('yourDiv2').addEventListener('mousewheel', scrollHorizontally, false);
+        // Firefox
+        document.getElementById('yourDiv2').addEventListener('DOMMouseScroll', scrollHorizontally, false);
+    } else {
+        // IE 6/7/8
+        document.getElementById('yourDiv2').attachEvent('onmousewheel', scrollHorizontally);
+    }
+})();
+      (function() {
+    function scrollHorizontally(e) {
+        e = window.event || e;
+        var delta = Math.max(-1, Math.min(1, (e.wheelDelta || -e.detail)));
+        document.getElementById('yourDiv3').scrollLeft -= (delta * 50); // Multiplied by 40
+        e.preventDefault();
+    }
+    if (document.getElementById('yourDiv3').addEventListener) {
+        // IE9, Chrome, Safari, Opera
+        document.getElementById('yourDiv3').addEventListener('mousewheel', scrollHorizontally, false);
+        // Firefox
+        document.getElementById('yourDiv3').addEventListener('DOMMouseScroll', scrollHorizontally, false);
+    } else {
+        // IE 6/7/8
+        document.getElementById('yourDiv3').attachEvent('onmousewheel', scrollHorizontally);
+    }
+})();
+      (function() {
+    function scrollHorizontally(e) {
+        e = window.event || e;
+        var delta = Math.max(-1, Math.min(1, (e.wheelDelta || -e.detail)));
+        document.getElementById('yourDiv4').scrollLeft -= (delta * 50); // Multiplied by 40
+        e.preventDefault();
+    }
+    if (document.getElementById('yourDiv4').addEventListener) {
+        // IE9, Chrome, Safari, Opera
+        document.getElementById('yourDiv4').addEventListener('mousewheel', scrollHorizontally, false);
+        // Firefox
+        document.getElementById('yourDiv4').addEventListener('DOMMouseScroll', scrollHorizontally, false);
+    } else {
+        // IE 6/7/8
+        document.getElementById('yourDiv4').attachEvent('onmousewheel', scrollHorizontally);
+    }
+})();
+      (function() {
+    function scrollHorizontally(e) {
+        e = window.event || e;
+        var delta = Math.max(-1, Math.min(1, (e.wheelDelta || -e.detail)));
+        document.getElementById('yourDiv5').scrollLeft -= (delta * 50); // Multiplied by 40
+        e.preventDefault();
+    }
+    if (document.getElementById('yourDiv5').addEventListener) {
+        // IE9, Chrome, Safari, Opera
+        document.getElementById('yourDiv5').addEventListener('mousewheel', scrollHorizontally, false);
+        // Firefox
+        document.getElementById('yourDiv5').addEventListener('DOMMouseScroll', scrollHorizontally, false);
+    } else {
+        // IE 6/7/8
+        document.getElementById('yourDiv5').attachEvent('onmousewheel', scrollHorizontally);
+    }
+})();
+      (function() {
+    function scrollHorizontally(e) {
+        e = window.event || e;
+        var delta = Math.max(-1, Math.min(1, (e.wheelDelta || -e.detail)));
+        document.getElementById('yourDiv6').scrollLeft -= (delta * 50); // Multiplied by 40
+        e.preventDefault();
+    }
+    if (document.getElementById('yourDiv6').addEventListener) {
+        // IE9, Chrome, Safari, Opera
+        document.getElementById('yourDiv6').addEventListener('mousewheel', scrollHorizontally, false);
+        // Firefox
+        document.getElementById('yourDiv6').addEventListener('DOMMouseScroll', scrollHorizontally, false);
+    } else {
+        // IE 6/7/8
+        document.getElementById('yourDiv6').attachEvent('onmousewheel', scrollHorizontally);
+    }
+})();
+      (function() {
+    function scrollHorizontally(e) {
+        e = window.event || e;
+        var delta = Math.max(-1, Math.min(1, (e.wheelDelta || -e.detail)));
+        document.getElementById('yourDiv7').scrollLeft -= (delta * 50); // Multiplied by 40
+        e.preventDefault();
+    }
+    if (document.getElementById('yourDiv7').addEventListener) {
+        // IE9, Chrome, Safari, Opera
+        document.getElementById('yourDiv7').addEventListener('mousewheel', scrollHorizontally, false);
+        // Firefox
+        document.getElementById('yourDiv7').addEventListener('DOMMouseScroll', scrollHorizontally, false);
+    } else {
+        // IE 6/7/8
+        document.getElementById('yourDiv7').attachEvent('onmousewheel', scrollHorizontally);
+    }
+})();
+      (function() {
+    function scrollHorizontally(e) {
+        e = window.event || e;
+        var delta = Math.max(-1, Math.min(1, (e.wheelDelta || -e.detail)));
+        document.getElementById('yourDiv8').scrollLeft -= (delta * 50); // Multiplied by 40
+        e.preventDefault();
+    }
+    if (document.getElementById('yourDiv8').addEventListener) {
+        // IE9, Chrome, Safari, Opera
+        document.getElementById('yourDiv8').addEventListener('mousewheel', scrollHorizontally, false);
+        // Firefox
+        document.getElementById('yourDiv8').addEventListener('DOMMouseScroll', scrollHorizontally, false);
+    } else {
+        // IE 6/7/8
+        document.getElementById('yourDiv8').attachEvent('onmousewheel', scrollHorizontally);
+    }
+})();
+      (function() {
+    function scrollHorizontally(e) {
+        e = window.event || e;
+        var delta = Math.max(-1, Math.min(1, (e.wheelDelta || -e.detail)));
+        document.getElementById('yourDiv9').scrollLeft -= (delta * 50); // Multiplied by 40
+        e.preventDefault();
+    }
+    if (document.getElementById('yourDiv9').addEventListener) {
+        // IE9, Chrome, Safari, Opera
+        document.getElementById('yourDiv9').addEventListener('mousewheel', scrollHorizontally, false);
+        // Firefox
+        document.getElementById('yourDiv9').addEventListener('DOMMouseScroll', scrollHorizontally, false);
+    } else {
+        // IE 6/7/8
+        document.getElementById('yourDiv9').attachEvent('onmousewheel', scrollHorizontally);
+    }
+})();
+      (function() {
+    function scrollHorizontally(e) {
+        e = window.event || e;
+        var delta = Math.max(-1, Math.min(1, (e.wheelDelta || -e.detail)));
+        document.getElementById('yourDiv10').scrollLeft -= (delta * 50); // Multiplied by 40
+        e.preventDefault();
+    }
+    if (document.getElementById('yourDiv10').addEventListener) {
+        // IE9, Chrome, Safari, Opera
+        document.getElementById('yourDiv10').addEventListener('mousewheel', scrollHorizontally, false);
+        // Firefox
+        document.getElementById('yourDiv10').addEventListener('DOMMouseScroll', scrollHorizontally, false);
+    } else {
+        // IE 6/7/8
+        document.getElementById('yourDiv10').attachEvent('onmousewheel', scrollHorizontally);
+    }
+})();
+      (function() {
+    function scrollHorizontally(e) {
+        e = window.event || e;
+        var delta = Math.max(-1, Math.min(1, (e.wheelDelta || -e.detail)));
+        document.getElementById('yourDiv11').scrollLeft -= (delta * 50); // Multiplied by 40
+        e.preventDefault();
+    }
+    if (document.getElementById('yourDiv11').addEventListener) {
+        // IE9, Chrome, Safari, Opera
+        document.getElementById('yourDiv11').addEventListener('mousewheel', scrollHorizontally, false);
+        // Firefox
+        document.getElementById('yourDiv11').addEventListener('DOMMouseScroll', scrollHorizontally, false);
+    } else {
+        // IE 6/7/8
+        document.getElementById('yourDiv11').attachEvent('onmousewheel', scrollHorizontally);
+    }
+})();
+    </script>
+  </body>
+</html>

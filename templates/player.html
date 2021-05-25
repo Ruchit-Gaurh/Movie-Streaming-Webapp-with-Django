@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://vjs.zencdn.net/7.11.4/video-js.css" rel="stylesheet" />
+    <link rel="stylesheet" href="{% static 'css/player.css' %}">
+    <link rel="shortcut icon" type="image/jpg" href="{% static 'favicon.ico' %}"/>
+    <title>Watch {{episode.Parent_serie}} Online Free | KDramaLove</title>
+</head>
+<body>
+  <div class="nav">
+    <a href="/">
+      <img src="{% static 'imgbin_drama-youtube-logo-television-show-png.png' %}" alt="" class="nav_logo">
+    </a>
+    <div class="search_container">
+          <form class="search_Form" action="/search/results" method="get">
+              <input class="query" name="query" id="query" type="search" placeholder="Search" value="{{query}}">
+              <button class="search_btn" type="submit"><i class="fa fa-search"></i></button>
+          </form>
+        </div>
+  </div>
+    {% comment %} <video
+    id="my-video"
+    class="video-js"
+    controls
+    preload="auto"
+    width="640"
+    height="264"
+    poster="MY_VIDEO_POSTER.jpg"
+    data-setup="{}"
+  >
+    <source src="{{episode.episode}}" type="video/mp4" />
+    <track src="{{episode.subtitle}}" kind="subtitles" srclang="en" label="English">
+    <p class="vjs-no-js">
+      To view this video please enable JavaScript, and consider upgrading to a
+      web browser that
+      <a href="https://videojs.com/html5-video-support/" target="_blank"
+        >supports HTML5 video</a
+      >
+    </p>
+  </video> {% endcomment %}
+  <iframe style="display: block; margin: auto;" src="{{episode.video_embed}}" width="800" height="600" allowfullscreen allowtransparency allow="autoplay" scrolling="no" frameborder="0"></iframe>
+  
+
+  {% comment %} <script src="https://vjs.zencdn.net/7.11.4/video.min.js"></script> {% endcomment %}
+
+  <script>
+    var nav = document.querySelector(".nav")
+  
+        window.addEventListener("scroll", function scrollhandlenav(){
+          {
+          if (window.scrollY > 100){
+            nav.classList.add("nav_black")
+          } else nav.classList.remove("nav_black") ;
+        }
+        });
+  </script>
+
+</body>
+</html>
