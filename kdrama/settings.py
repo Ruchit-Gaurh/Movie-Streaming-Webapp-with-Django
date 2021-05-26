@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-q_&ygrup@g@30r2-r2vb3^!9&w6qeim+63qn9-xmonl7eby7j)
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['kdramalove.herokuapp.com']
+ALLOWED_HOSTS = ['kdramalove.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
