@@ -11,6 +11,75 @@
     <title>Watch {{episode.Parent_serie}} Online Free | KDramaLove</title>
 </head>
 <body>
+  <style>
+    body{
+    background-color: #111;
+    color: white;
+}
+
+.video-js{
+    display: block;
+    margin: auto;
+}
+
+.nav{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 20px;
+    padding-top: 10px;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    z-index: 1;
+} 
+
+.nav_logo{
+    filter: invert(100%);
+    position: fixed;
+    left: 20px;
+    width: 80px;
+    object-fit: contain;
+}
+
+.nav_black{
+    background-color: #1a1a1a;
+}
+
+.search_container{
+    color: white;
+    position: fixed;
+    object-fit: contain;
+    right: 20px;
+}
+
+.search_Form{
+    display: flex;
+    width: 100%;
+}
+
+.query{
+    color: white;
+    background-color: #1a1a1a;
+    width: 85%;
+    padding: 10px;
+    border: 2px solid grey;
+    border-radius: 5%;
+    margin-right: -2px;
+}
+
+.search_btn{
+    background-color: #1a1a1a;
+    width: 50px;
+    border-radius: 5%;
+    border: 2px solid grey;
+}
+
+.fa-search{
+    font-size: 1.5em;
+    color: #fff;
+}
+  </style>
   <div class="nav">
     <a href="/">
       <img src="{% static 'imgbin_drama-youtube-logo-television-show-png.png' %}" alt="" class="nav_logo">
