@@ -48,10 +48,8 @@ def play_view(request , number=None, title=None):
 def search_result_page(request):
     query = request.GET['query']
     uploadTitle = upload_serie.objects.filter(title__icontains=query)
-    uploaddesc= upload_serie.objects.filter(image_description__icontains=query)
-    uploadTD = uploadTitle.union(uploaddesc)
     ktitle = upload_serie.objects.filter(korean_title__icontains=query)
-    uploadTDK = uploadTD.union(ktitle)
+    uploadTDK = uploadTitle.union(ktitle)
     genre = upload_serie.objects.filter(genres__icontains=query)
     uploadTDKG = uploadTDK.union(genre)
     noepisodes = upload_serie.objects.filter(episodes__icontains=query)
