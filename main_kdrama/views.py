@@ -1,6 +1,7 @@
 from django.core.checks.messages import Error
 from django.shortcuts import get_object_or_404, render
 from .models import main_poster, upload_serie, episodesss, epi, category1_name, category1, category2_name, category2, category3_name, category3, category4_name, category4, category5_name, category5, category6_name, category6, category7_name, category7, category8_name, category8, category9_name, category9, category10_name, category10
+from django.views.generic import TemplateView
 
 # Create your views here.
 def main_page(request):
@@ -45,7 +46,7 @@ def play_view(request , number=None, title=None):
     return render(request, "player.html", {'episode':episode})
 
 def sitemap_func(request):
-    return render(request, "sitemap.xml")
+    return render(request, "sitemap.xml", {"foo":"bar"}, content_type="application/xhtml+xml")
 
 
 def search_result_page(request):
