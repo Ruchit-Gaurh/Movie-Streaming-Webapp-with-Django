@@ -8,5 +8,5 @@ urlpatterns = [
     path("series/<slug:title>", series_detail_view, name="series_detail_view"),
     path("series/<slug:title>/episode<int:number>", play_view),
     path("search/results", search_result_page),
-    path("sitemap.xml", sitemap_func)
+    path("sitemaps.xml", sitemap_func)
 ]
