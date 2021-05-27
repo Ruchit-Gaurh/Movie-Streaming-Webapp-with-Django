@@ -44,6 +44,9 @@ def play_view(request , number=None, title=None):
     episode = get_object_or_404(episodesss, onlyepisodenumber=number, parent_url=title)
     return render(request, "player.html", {'episode':episode})
 
+def sitemap_func(request):
+    return render(request, "sitemap.xml")
+
 
 def search_result_page(request):
     query = request.GET['query']

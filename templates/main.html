@@ -4,11 +4,75 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="google-site-verification" content="Kw0NjKkl20zO1oMjZXCO5fvnWVbJBQUpN-vBwg8HN5I" />
+    <meta
+      name="google-site-verification"
+      content="Kw0NjKkl20zO1oMjZXCO5fvnWVbJBQUpN-vBwg8HN5I"
+    />
     <meta name="clckd" content="b151a346405c014798e35461530b0bf3" />
-    <meta name="propeller" content="8ffa23e6c06a4926f19791d3fb286a67">
+    <meta name="propeller" content="8ffa23e6c06a4926f19791d3fb286a67" />
+    <meta
+      name="description"
+      content="Watch Korean TV shows and movies online for FREE!! Korean dramas, Kpop, Romance kdrama, Fantasy kdrama, Horror kdrama etc etc only on KDramaLove with English Subtitle"
+    />
+    <meta
+      name="keywords"
+      content="KDramaLove,
+      kdramalove,
+      kdrama,
+      kdrama with subtitle,
+      kdrama with english subtitles,
+      kdrama with eng sub,
+      kdrama with english sub,
+      Watch kdrama,
+      Watch kdrama with subtitle,
+      Watch kdrama with english subtitles,
+      Watch kdrama with eng sub,
+      Watch kdrama with english sub,
+      Watch korean drama online,
+      korean movies online,
+      watch korean drama online,
+      free korean drama,
+      watch korean movies,
+      watch korean dramas for free,
+      watch korean movies online,
+      korean movie,
+      watch korean drama,
+      online watch,
+      korean dramas to watch,
+      watch korean drama online free,
+      free korean movies,
+      korean drama movies,
+      free korean movies to watch,
+      korean movie to watch,
+      korean drama online free,
+      watch korean movies online free,
+      korean movies online free,
+      watch korean,
+      watching in korean,
+      www korean movie,
+      the korean movie,
+      watch online watch,
+      korean movies for free online,
+      free dramas,
+      korean drama and movies,
+      free korean drama movies,
+      watch korean free,
+      free movies online to watch free,
+      a korean movie,
+      korean drama movie online,
+      free online korean movies to watch,
+      watch korean drama movies,
+      watch free dramas,
+      korean online watch,
+      movie korean movie,
+      free korean movie drama,
+      korean movie movie,
+      www korean drama online,
+      movies and dramas
+    "
+    />
 
-    <link 
+    <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
@@ -20,261 +84,252 @@
       integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="{% static 'css/main.css' %}" />
-    <link rel="shortcut icon" type="image/jpg" href="{% static 'favicon.ico' %}"/>
+    <link
+      rel="shortcut icon"
+      type="image/jpg"
+      href="{% static 'favicon.ico' %}"
+    />
 
-    <title>Watch Korean Dramas and Movies Online Free | KDramaLove</title>
+    <title>KDramaLove | Watch Korean Dramas Online Free</title>
   </head>
   <body>
     <style>
-      
+      body {
+        background-color: #111;
+        color: white;
+        overflow-x: hidden;
+        margin: 0;
+        padding: 0;
+      }
 
-body{
-    background-color: #111;
-    color: white;
-    overflow-x: hidden;
-    margin: 0;
-    padding: 0;
-}
+      .row {
+        margin-left: 20px;
+        margin-bottom: -50px;
+        margin-top: 20px;
+      }
 
-.row{
-    margin-left: 20px;
-    margin-bottom: -50px;
-    margin-top: 20px;
-}
-
-.row_posters{
-    display: flex;
-    overflow-y: hidden;
-    overflow-x: scroll;
-    padding: 20px;
-    padding-bottom: 0;
-    margin-bottom: 20px;
-    margin-top: 20px;
-}
-
-.row_posters::-webkit-scrollbar{
-    display: none;
-}
-
-.banner_fadebottom{
-    height: 7.4rem;
-    background-image: linear-gradient(
-        180deg,
-        transparent,
-        rgba(37,37,37,0.61),
-        #111
-    );
-}
-
-
-@media screen and (max-width:650px) {
-    .row_poster{
-        border-radius: 5px;
-        object-fit: contain;
-        width: 100%;
-        margin-right: 17px;
-        margin-left: -7px;
-        transition: transform 450ms;
+      .row_posters {
+        display: flex;
+        overflow-y: hidden;
+        overflow-x: scroll;
+        padding: 20px;
+        padding-bottom: 0;
         margin-bottom: 20px;
-    }
-    .row_poster1{
-        border-radius: 5px;
-        object-fit: contain;
-        width: 100%;
-        min-width: 50%;
-        margin-right: 17px;
-        margin-left: -7px;
-        transition: transform 450ms;
-        margin-bottom: 35px;
-    }
-    .banner_content{
-        margin-left: 30px;
-        padding-top: 60px;
-        /* height: 448px; */
-    }
+        margin-top: 20px;
+      }
 
-    .banner_description{
+      .row_posters::-webkit-scrollbar {
         display: none;
-    }
+      }
 
-    .banner_fadebottom{
-        height: 2.4rem;
-    }
-}
+      .banner_fadebottom {
+        height: 7.4rem;
+        background-image: linear-gradient(
+          180deg,
+          transparent,
+          rgba(37, 37, 37, 0.61),
+          #111
+        );
+      }
 
+      @media screen and (max-width: 650px) {
+        .row_poster {
+          border-radius: 5px;
+          object-fit: contain;
+          width: 100%;
+          margin-right: 17px;
+          margin-left: -7px;
+          transition: transform 450ms;
+          margin-bottom: 20px;
+        }
+        .row_poster1 {
+          border-radius: 5px;
+          object-fit: contain;
+          width: 100%;
+          min-width: 50%;
+          margin-right: 17px;
+          margin-left: -7px;
+          transition: transform 450ms;
+          margin-bottom: 35px;
+        }
+        .banner_content {
+          margin-left: 30px;
+          padding-top: 60px;
+        }
 
+        .banner_description {
+          display: none;
+        }
 
-@media screen and (min-width:650px) {
-    .row_poster{
-        border-radius: 5px;
+        .banner_fadebottom {
+          height: 2.4rem;
+        }
+      }
+
+      @media screen and (min-width: 650px) {
+        .row_poster {
+          border-radius: 5px;
+          object-fit: contain;
+          width: 100%;
+          margin-right: 17px;
+          margin-left: -7px;
+          transition: transform 450ms;
+          margin-bottom: 20px;
+        }
+        .row_poster1 {
+          border-radius: 5px;
+          object-fit: contain;
+          width: 100%;
+          min-width: 33%;
+          margin-right: 17px;
+          margin-left: -7px;
+          transition: transform 450ms;
+          margin-bottom: 35px;
+        }
+        .banner_content {
+          margin-left: 30px;
+          padding-top: 60px;
+        }
+      }
+
+      @media screen and (min-width: 1140px) {
+        .row_poster {
+          border-radius: 5px;
+          object-fit: contain;
+          width: 100%;
+          margin-right: 17px;
+          margin-left: -7px;
+          transition: transform 450ms;
+          margin-bottom: 20px;
+          position: relative;
+        }
+        .row_poster1 {
+          min-width: 23%;
+          border-radius: 5px;
+          object-fit: contain;
+          width: 100%;
+          margin-right: 17px;
+          margin-left: -7px;
+          transition: transform 450ms;
+          margin-bottom: 35px;
+        }
+        .banner_content {
+          margin-left: 30px;
+          padding-top: 140px;
+          height: 448px;
+        }
+      }
+
+      .row_poster:hover {
+        transform: scale(1.1);
+        z-index: 1;
+      }
+
+      .banner {
+        margin-top: 67px;
+        color: white;
         object-fit: contain;
+      }
+
+      .banner_title {
+        font-size: 3rem;
+        font-weight: 800;
+        padding-bottom: 0.3rem;
+      }
+
+      .banner_description {
+        width: 45rem;
+        line-height: 1.3;
+        padding-top: 1rem;
+        font-size: 0.8rem;
+        max-width: 340px;
+        height: 80px;
+      }
+
+      .banner_button {
+        cursor: pointer;
+        color: #fff;
+        outline: none;
+        border: none;
+        font-weight: 700;
+        border-radius: 0.2vw;
+        padding-left: 2rem;
+        padding-right: 2rem;
+        margin-right: 1rem;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        background-color: rgba(51, 51, 51, 0.5);
+      }
+
+      .banner_button:hover {
+        color: #000;
+        background-color: #e6e6e6;
+        transition: all 0.2s;
+      }
+
+      .nav {
+        position: fixed;
+        top: 0;
         width: 100%;
-        margin-right: 17px;
-        margin-left: -7px;
-        transition: transform 450ms;
-        margin-bottom: 20px;
-    }
-    .row_poster1{
-        border-radius: 5px;
+        padding: 20px;
+        padding-top: 10px;
+        height: 67px;
+        display: flex;
+        justify-content: space-between;
+        z-index: 1;
+        background-color: #1a1a1a;
+        overflow-x: hidden;
+      }
+
+      .nav_logo {
+        filter: invert(100%);
+        position: fixed;
+        left: 20px;
+        width: 80px;
         object-fit: contain;
-        width: 100%;
-        min-width: 33%;
-        margin-right: 17px;
-        margin-left: -7px;
-        transition: transform 450ms;
-        margin-bottom: 35px;
-    }
-    .banner_content{
-        margin-left: 30px;
-        padding-top: 60px;
-        /* height: 448px; */
-    }
-}
+      }
 
-@media screen and (min-width:1140px) {
-    .row_poster{
-        border-radius: 5px;
+      .nav_black {
+        background-color: #1a1a1a;
+      }
+
+      .search_container {
+        color: white;
+        position: fixed;
         object-fit: contain;
-        width: 100%;
-        margin-right: 17px;
-        margin-left: -7px;
-        transition: transform 450ms;
-        margin-bottom: 20px;
-        position: relative;
-    }
-    .row_poster1{
-        min-width: 23%;
-        border-radius: 5px;
-        object-fit: contain;
-        width: 100%;
-        margin-right: 17px;
-        margin-left: -7px;
-        transition: transform 450ms;
-        margin-bottom: 35px;
-    }
-    .banner_content{
-        margin-left: 30px;
-        padding-top: 140px;
-        height: 448px;
-    }
-}
+        right: 0px;
+      }
 
-.row_poster:hover{
-    transform: scale(1.1);
-    z-index: 1;
-}
+      .search_Form {
+        display: flex;
+        width: 95%;
+      }
 
-.banner{
-    margin-top: 67px;
-    color: white;
-    object-fit: contain;
-}
+      .query {
+        color: white;
+        background-color: #1a1a1a;
+        width: 81%;
+        padding: 10px;
+        border: 2px solid grey;
+        border-radius: 5%;
+        margin-right: -7px;
+      }
 
+      .search_btn {
+        background-color: #1a1a1a;
+        width: 50px;
+        border-radius: 5%;
+        border: 2px solid grey;
+      }
 
+      .fa-search {
+        font-size: 1.5em;
+        color: #fff;
+      }
 
-.banner_title{
-    font-size: 3rem;
-    font-weight: 800;
-    padding-bottom: 0.3rem;
-}
-
-.banner_description{
-    width: 45rem;
-    line-height: 1.3;
-    padding-top: 1rem;
-    font-size: 0.8rem;
-    max-width: 340px;
-    height: 80px;
-}
-
-.banner_button{
-    cursor: pointer;
-    color: #fff;
-    outline: none;
-    border: none;
-    font-weight: 700;
-    border-radius: 0.2vw;
-    padding-left: 2rem;
-    padding-right: 2rem;
-    margin-right: 1rem;
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-    background-color: rgba(51, 51, 51, 0.5);
-}
-
-.banner_button:hover{
-    color: #000;
-    background-color: #e6e6e6;
-    transition: all 0.2s;
-}
-
-
-
-.nav{
-    position: fixed;
-    top: 0;
-    width: 100%;
-    padding: 20px;
-    padding-top: 10px;
-    height: 67px;
-    display: flex;
-    justify-content: space-between;
-    z-index: 1;
-    background-color: #1a1a1a;
-    overflow-x : hidden;
-} 
-
-.nav_logo{
-    filter: invert(100%);
-    position: fixed;
-    left: 20px;
-    width: 80px;
-    object-fit: contain;
-}
-
-.nav_black{
-    background-color: #1a1a1a;
-}
-
-
-.search_container{
-    color: white;
-    position: fixed;
-    object-fit: contain;
-    right: 0px;
-}
-
-.search_Form{
-    display: flex;
-    width: 95%;
-}
-
-.query{
-    color: white;
-    background-color: #1a1a1a;
-    width: 81%;
-    padding: 10px;
-    border: 2px solid grey;
-    border-radius: 5%;
-    margin-right: -7px;
-}
-
-.search_btn{
-    background-color: #1a1a1a;
-    width: 50px;
-    border-radius: 5%;
-    border: 2px solid grey;
-}
-
-.fa-search{
-    font-size: 1.5em;
-    color: #fff;
-}
-
-.row_poster1{
-  text-decoration:none;
-}
+      .row_poster1 {
+        text-decoration: none;
+      }
     </style>
     <div class="nav">
       <a href="/">
@@ -283,13 +338,19 @@ body{
           alt=""
           class="nav_logo"
         />
-        
-      
       </a>
       <div class="search_container">
         <form class="search_Form" action="/search/results" method="get">
-            <input class="query" name="query" id="query" type="search" placeholder="Search">
-            <button class="search_btn" type="submit"><i class="fa fa-search"></i></button>
+          <input
+            class="query"
+            name="query"
+            id="query"
+            type="search"
+            placeholder="Search"
+          />
+          <button class="search_btn" type="submit">
+            <i class="fa fa-search"></i>
+          </button>
         </form>
       </div>
     </div>
@@ -331,7 +392,10 @@ body{
             <h1 class="banner_title">{{poster.title}}</h1>
 
             <div class="banner_buttons">
-              <a href="/series/{{poster.url}}/episode1" style="text-decoration: none; color: white">
+              <a
+                href="/series/{{poster.url}}/episode1"
+                style="text-decoration: none; color: white"
+              >
                 <button class="banner_button">Ep. 1</button>
               </a>
               <button class="banner_button">My List</button>
@@ -349,10 +413,14 @@ body{
       <h2>Recently Added</h2>
       <div class="row_posters" id="yourDiv">
         {% for r in recent%}
-          <a style="text-decoration: none;" class="row_poster1" href="series/{{r.url}}">
-            <img class="row_poster" src="{{r.img}}" alt="" />
-            <h4 style="color: white;">{{r.title}}</h4>
-          </a>
+        <a
+          style="text-decoration: none"
+          class="row_poster1"
+          href="series/{{r.url}}"
+        >
+          <img class="row_poster" src="{{r.img}}" alt="" />
+          <h4 style="color: white">{{r.title}}</h4>
+        </a>
         {% endfor %}
       </div>
     </div>
@@ -362,7 +430,7 @@ body{
         {% for r in cat1%}
         <a class="row_poster1" href="series/{{r.url}}">
           <img class="row_poster" src="{{r.serie_img}}" alt="" />
-            <h4 style="color: white;">{{r.serie_tittle}}</h4>
+          <h4 style="color: white">{{r.serie_tittle}}</h4>
         </a>
         {% endfor %}
       </div>
@@ -373,7 +441,7 @@ body{
         {% for r in cat2%}
         <a class="row_poster1" href="series/{{r.url}}">
           <img class="row_poster" src="{{r.serie_img}}" alt="" />
-            <h4 style="color: white;">{{r.serie_tittle}}</h4>
+          <h4 style="color: white">{{r.serie_tittle}}</h4>
         </a>
         {% endfor %}
       </div>
@@ -384,7 +452,7 @@ body{
         {% for r in cat3%}
         <a class="row_poster1" href="series/{{r.url}}">
           <img class="row_poster" src="{{r.serie_img}}" alt="" />
-            <h4 style="color: white;">{{r.serie_tittle}}</h4>
+          <h4 style="color: white">{{r.serie_tittle}}</h4>
         </a>
         {% endfor %}
       </div>
@@ -395,7 +463,7 @@ body{
         {% for r in cat4%}
         <a class="row_poster1" href="series/{{r.url}}">
           <img class="row_poster" src="{{r.serie_img}}" alt="" />
-            <h4 style="color: white;">{{r.serie_tittle}}</h4>
+          <h4 style="color: white">{{r.serie_tittle}}</h4>
         </a>
         {% endfor %}
       </div>
@@ -406,7 +474,7 @@ body{
         {% for r in cat5%}
         <a class="row_poster1" href="series/{{r.url}}">
           <img class="row_poster" src="{{r.serie_img}}" alt="" />
-            <h4 style="color: white;">{{r.serie_tittle}}</h4>
+          <h4 style="color: white">{{r.serie_tittle}}</h4>
         </a>
         {% endfor %}
       </div>
@@ -417,7 +485,7 @@ body{
         {% for r in cat6%}
         <a class="row_poster1" href="series/{{r.url}}">
           <img class="row_poster" src="{{r.serie_img}}" alt="" />
-            <h4 style="color: white;">{{r.serie_tittle}}</h4>
+          <h4 style="color: white">{{r.serie_tittle}}</h4>
         </a>
         {% endfor %}
       </div>
@@ -428,7 +496,7 @@ body{
         {% for r in cat7%}
         <a class="row_poster1" href="series/{{r.url}}">
           <img class="row_poster" src="{{r.serie_img}}" alt="" />
-            <h4 style="color: white;">{{r.serie_tittle}}</h4>
+          <h4 style="color: white">{{r.serie_tittle}}</h4>
         </a>
         {% endfor %}
       </div>
@@ -439,7 +507,7 @@ body{
         {% for r in cat8%}
         <a class="row_poster1" href="series/{{r.url}}">
           <img class="row_poster" src="{{r.serie_img}}" alt="" />
-            <h4 style="color: white;">{{r.serie_tittle}}</h4>
+          <h4 style="color: white">{{r.serie_tittle}}</h4>
         </a>
         {% endfor %}
       </div>
@@ -450,7 +518,7 @@ body{
         {% for r in cat9%}
         <a class="row_poster1" href="series/{{r.url}}">
           <img class="row_poster" src="{{r.serie_img}}" alt="" />
-            <h4 style="color: white;">{{r.serie_tittle}}</h4>
+          <h4 style="color: white">{{r.serie_tittle}}</h4>
         </a>
         {% endfor %}
       </div>
@@ -461,12 +529,12 @@ body{
         {% for r in cat10%}
         <a class="row_poster1" href="series/{{r.url}}">
           <img class="row_poster" src="{{r.serie_img}}" alt="" />
-            <h4 style="color: white;">{{r.serie_tittle}}</h4>
+          <h4 style="color: white">{{r.serie_tittle}}</h4>
         </a>
         {% endfor %}
       </div>
     </div>
-    
+
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
@@ -483,195 +551,250 @@ body{
         }
       });
 
-      (function() {
-    function scrollHorizontally(e) {
-        e = window.event || e;
-        var delta = Math.max(-1, Math.min(1, (e.wheelDelta || -e.detail)));
-        document.getElementById('yourDiv').scrollLeft -= (delta * 50); // Multiplied by 40
-        e.preventDefault();
-    }
-    if (document.getElementById('yourDiv').addEventListener) {
-        // IE9, Chrome, Safari, Opera
-        document.getElementById('yourDiv').addEventListener('mousewheel', scrollHorizontally, false);
-        // Firefox
-        document.getElementById('yourDiv').addEventListener('DOMMouseScroll', scrollHorizontally, false);
-    } else {
-        // IE 6/7/8
-        document.getElementById('yourDiv').attachEvent('onmousewheel', scrollHorizontally);
-    }
-})();
-      (function() {
-    function scrollHorizontally(e) {
-        e = window.event || e;
-        var delta = Math.max(-1, Math.min(1, (e.wheelDelta || -e.detail)));
-        document.getElementById('yourDiv2').scrollLeft -= (delta * 50); // Multiplied by 40
-        e.preventDefault();
-    }
-    if (document.getElementById('yourDiv2').addEventListener) {
-        // IE9, Chrome, Safari, Opera
-        document.getElementById('yourDiv2').addEventListener('mousewheel', scrollHorizontally, false);
-        // Firefox
-        document.getElementById('yourDiv2').addEventListener('DOMMouseScroll', scrollHorizontally, false);
-    } else {
-        // IE 6/7/8
-        document.getElementById('yourDiv2').attachEvent('onmousewheel', scrollHorizontally);
-    }
-})();
-      (function() {
-    function scrollHorizontally(e) {
-        e = window.event || e;
-        var delta = Math.max(-1, Math.min(1, (e.wheelDelta || -e.detail)));
-        document.getElementById('yourDiv3').scrollLeft -= (delta * 50); // Multiplied by 40
-        e.preventDefault();
-    }
-    if (document.getElementById('yourDiv3').addEventListener) {
-        // IE9, Chrome, Safari, Opera
-        document.getElementById('yourDiv3').addEventListener('mousewheel', scrollHorizontally, false);
-        // Firefox
-        document.getElementById('yourDiv3').addEventListener('DOMMouseScroll', scrollHorizontally, false);
-    } else {
-        // IE 6/7/8
-        document.getElementById('yourDiv3').attachEvent('onmousewheel', scrollHorizontally);
-    }
-})();
-      (function() {
-    function scrollHorizontally(e) {
-        e = window.event || e;
-        var delta = Math.max(-1, Math.min(1, (e.wheelDelta || -e.detail)));
-        document.getElementById('yourDiv4').scrollLeft -= (delta * 50); // Multiplied by 40
-        e.preventDefault();
-    }
-    if (document.getElementById('yourDiv4').addEventListener) {
-        // IE9, Chrome, Safari, Opera
-        document.getElementById('yourDiv4').addEventListener('mousewheel', scrollHorizontally, false);
-        // Firefox
-        document.getElementById('yourDiv4').addEventListener('DOMMouseScroll', scrollHorizontally, false);
-    } else {
-        // IE 6/7/8
-        document.getElementById('yourDiv4').attachEvent('onmousewheel', scrollHorizontally);
-    }
-})();
-      (function() {
-    function scrollHorizontally(e) {
-        e = window.event || e;
-        var delta = Math.max(-1, Math.min(1, (e.wheelDelta || -e.detail)));
-        document.getElementById('yourDiv5').scrollLeft -= (delta * 50); // Multiplied by 40
-        e.preventDefault();
-    }
-    if (document.getElementById('yourDiv5').addEventListener) {
-        // IE9, Chrome, Safari, Opera
-        document.getElementById('yourDiv5').addEventListener('mousewheel', scrollHorizontally, false);
-        // Firefox
-        document.getElementById('yourDiv5').addEventListener('DOMMouseScroll', scrollHorizontally, false);
-    } else {
-        // IE 6/7/8
-        document.getElementById('yourDiv5').attachEvent('onmousewheel', scrollHorizontally);
-    }
-})();
-      (function() {
-    function scrollHorizontally(e) {
-        e = window.event || e;
-        var delta = Math.max(-1, Math.min(1, (e.wheelDelta || -e.detail)));
-        document.getElementById('yourDiv6').scrollLeft -= (delta * 50); // Multiplied by 40
-        e.preventDefault();
-    }
-    if (document.getElementById('yourDiv6').addEventListener) {
-        // IE9, Chrome, Safari, Opera
-        document.getElementById('yourDiv6').addEventListener('mousewheel', scrollHorizontally, false);
-        // Firefox
-        document.getElementById('yourDiv6').addEventListener('DOMMouseScroll', scrollHorizontally, false);
-    } else {
-        // IE 6/7/8
-        document.getElementById('yourDiv6').attachEvent('onmousewheel', scrollHorizontally);
-    }
-})();
-      (function() {
-    function scrollHorizontally(e) {
-        e = window.event || e;
-        var delta = Math.max(-1, Math.min(1, (e.wheelDelta || -e.detail)));
-        document.getElementById('yourDiv7').scrollLeft -= (delta * 50); // Multiplied by 40
-        e.preventDefault();
-    }
-    if (document.getElementById('yourDiv7').addEventListener) {
-        // IE9, Chrome, Safari, Opera
-        document.getElementById('yourDiv7').addEventListener('mousewheel', scrollHorizontally, false);
-        // Firefox
-        document.getElementById('yourDiv7').addEventListener('DOMMouseScroll', scrollHorizontally, false);
-    } else {
-        // IE 6/7/8
-        document.getElementById('yourDiv7').attachEvent('onmousewheel', scrollHorizontally);
-    }
-})();
-      (function() {
-    function scrollHorizontally(e) {
-        e = window.event || e;
-        var delta = Math.max(-1, Math.min(1, (e.wheelDelta || -e.detail)));
-        document.getElementById('yourDiv8').scrollLeft -= (delta * 50); // Multiplied by 40
-        e.preventDefault();
-    }
-    if (document.getElementById('yourDiv8').addEventListener) {
-        // IE9, Chrome, Safari, Opera
-        document.getElementById('yourDiv8').addEventListener('mousewheel', scrollHorizontally, false);
-        // Firefox
-        document.getElementById('yourDiv8').addEventListener('DOMMouseScroll', scrollHorizontally, false);
-    } else {
-        // IE 6/7/8
-        document.getElementById('yourDiv8').attachEvent('onmousewheel', scrollHorizontally);
-    }
-})();
-      (function() {
-    function scrollHorizontally(e) {
-        e = window.event || e;
-        var delta = Math.max(-1, Math.min(1, (e.wheelDelta || -e.detail)));
-        document.getElementById('yourDiv9').scrollLeft -= (delta * 50); // Multiplied by 40
-        e.preventDefault();
-    }
-    if (document.getElementById('yourDiv9').addEventListener) {
-        // IE9, Chrome, Safari, Opera
-        document.getElementById('yourDiv9').addEventListener('mousewheel', scrollHorizontally, false);
-        // Firefox
-        document.getElementById('yourDiv9').addEventListener('DOMMouseScroll', scrollHorizontally, false);
-    } else {
-        // IE 6/7/8
-        document.getElementById('yourDiv9').attachEvent('onmousewheel', scrollHorizontally);
-    }
-})();
-      (function() {
-    function scrollHorizontally(e) {
-        e = window.event || e;
-        var delta = Math.max(-1, Math.min(1, (e.wheelDelta || -e.detail)));
-        document.getElementById('yourDiv10').scrollLeft -= (delta * 50); // Multiplied by 40
-        e.preventDefault();
-    }
-    if (document.getElementById('yourDiv10').addEventListener) {
-        // IE9, Chrome, Safari, Opera
-        document.getElementById('yourDiv10').addEventListener('mousewheel', scrollHorizontally, false);
-        // Firefox
-        document.getElementById('yourDiv10').addEventListener('DOMMouseScroll', scrollHorizontally, false);
-    } else {
-        // IE 6/7/8
-        document.getElementById('yourDiv10').attachEvent('onmousewheel', scrollHorizontally);
-    }
-})();
-      (function() {
-    function scrollHorizontally(e) {
-        e = window.event || e;
-        var delta = Math.max(-1, Math.min(1, (e.wheelDelta || -e.detail)));
-        document.getElementById('yourDiv11').scrollLeft -= (delta * 50); // Multiplied by 40
-        e.preventDefault();
-    }
-    if (document.getElementById('yourDiv11').addEventListener) {
-        // IE9, Chrome, Safari, Opera
-        document.getElementById('yourDiv11').addEventListener('mousewheel', scrollHorizontally, false);
-        // Firefox
-        document.getElementById('yourDiv11').addEventListener('DOMMouseScroll', scrollHorizontally, false);
-    } else {
-        // IE 6/7/8
-        document.getElementById('yourDiv11').attachEvent('onmousewheel', scrollHorizontally);
-    }
-})();
+      (function () {
+        function scrollHorizontally(e) {
+          e = window.event || e;
+          var delta = Math.max(-1, Math.min(1, e.wheelDelta || -e.detail));
+          document.getElementById("yourDiv").scrollLeft -= delta * 50;
+          e.preventDefault();
+        }
+        if (document.getElementById("yourDiv").addEventListener) {
+          document
+            .getElementById("yourDiv")
+            .addEventListener("mousewheel", scrollHorizontally, false);
+          document
+            .getElementById("yourDiv")
+            .addEventListener("DOMMouseScroll", scrollHorizontally, false);
+        } else {
+          document
+            .getElementById("yourDiv")
+            .attachEvent("onmousewheel", scrollHorizontally);
+        }
+      })();
+      (function () {
+        function scrollHorizontally(e) {
+          e = window.event || e;
+          var delta = Math.max(-1, Math.min(1, e.wheelDelta || -e.detail));
+          document.getElementById("yourDiv2").scrollLeft -= delta * 50; 
+          e.preventDefault();
+        }
+        if (document.getElementById("yourDiv2").addEventListener) {
+          document
+            .getElementById("yourDiv2")
+            .addEventListener("mousewheel", scrollHorizontally, false);
+          document
+            .getElementById("yourDiv2")
+            .addEventListener("DOMMouseScroll", scrollHorizontally, false);
+        } else {
+          document
+            .getElementById("yourDiv2")
+            .attachEvent("onmousewheel", scrollHorizontally);
+        }
+      })();
+      (function () {
+        function scrollHorizontally(e) {
+          e = window.event || e;
+          var delta = Math.max(-1, Math.min(1, e.wheelDelta || -e.detail));
+          document.getElementById("yourDiv3").scrollLeft -= delta * 50; 
+          e.preventDefault();
+        }
+        if (document.getElementById("yourDiv3").addEventListener) {
+          document
+            .getElementById("yourDiv3")
+            .addEventListener("mousewheel", scrollHorizontally, false);
+          document
+            .getElementById("yourDiv3")
+            .addEventListener("DOMMouseScroll", scrollHorizontally, false);
+        } else {
+          document
+            .getElementById("yourDiv3")
+            .attachEvent("onmousewheel", scrollHorizontally);
+        }
+      })();
+      (function () {
+        function scrollHorizontally(e) {
+          e = window.event || e;
+          var delta = Math.max(-1, Math.min(1, e.wheelDelta || -e.detail));
+          document.getElementById("yourDiv4").scrollLeft -= delta * 50; // Multiplied by 40
+          e.preventDefault();
+        }
+        if (document.getElementById("yourDiv4").addEventListener) {
+          // IE9, Chrome, Safari, Opera
+          document
+            .getElementById("yourDiv4")
+            .addEventListener("mousewheel", scrollHorizontally, false);
+          // Firefox
+          document
+            .getElementById("yourDiv4")
+            .addEventListener("DOMMouseScroll", scrollHorizontally, false);
+        } else {
+          // IE 6/7/8
+          document
+            .getElementById("yourDiv4")
+            .attachEvent("onmousewheel", scrollHorizontally);
+        }
+      })();
+      (function () {
+        function scrollHorizontally(e) {
+          e = window.event || e;
+          var delta = Math.max(-1, Math.min(1, e.wheelDelta || -e.detail));
+          document.getElementById("yourDiv5").scrollLeft -= delta * 50; // Multiplied by 40
+          e.preventDefault();
+        }
+        if (document.getElementById("yourDiv5").addEventListener) {
+          // IE9, Chrome, Safari, Opera
+          document
+            .getElementById("yourDiv5")
+            .addEventListener("mousewheel", scrollHorizontally, false);
+          // Firefox
+          document
+            .getElementById("yourDiv5")
+            .addEventListener("DOMMouseScroll", scrollHorizontally, false);
+        } else {
+          // IE 6/7/8
+          document
+            .getElementById("yourDiv5")
+            .attachEvent("onmousewheel", scrollHorizontally);
+        }
+      })();
+      (function () {
+        function scrollHorizontally(e) {
+          e = window.event || e;
+          var delta = Math.max(-1, Math.min(1, e.wheelDelta || -e.detail));
+          document.getElementById("yourDiv6").scrollLeft -= delta * 50; // Multiplied by 40
+          e.preventDefault();
+        }
+        if (document.getElementById("yourDiv6").addEventListener) {
+          // IE9, Chrome, Safari, Opera
+          document
+            .getElementById("yourDiv6")
+            .addEventListener("mousewheel", scrollHorizontally, false);
+          // Firefox
+          document
+            .getElementById("yourDiv6")
+            .addEventListener("DOMMouseScroll", scrollHorizontally, false);
+        } else {
+          // IE 6/7/8
+          document
+            .getElementById("yourDiv6")
+            .attachEvent("onmousewheel", scrollHorizontally);
+        }
+      })();
+      (function () {
+        function scrollHorizontally(e) {
+          e = window.event || e;
+          var delta = Math.max(-1, Math.min(1, e.wheelDelta || -e.detail));
+          document.getElementById("yourDiv7").scrollLeft -= delta * 50; // Multiplied by 40
+          e.preventDefault();
+        }
+        if (document.getElementById("yourDiv7").addEventListener) {
+          // IE9, Chrome, Safari, Opera
+          document
+            .getElementById("yourDiv7")
+            .addEventListener("mousewheel", scrollHorizontally, false);
+          // Firefox
+          document
+            .getElementById("yourDiv7")
+            .addEventListener("DOMMouseScroll", scrollHorizontally, false);
+        } else {
+          // IE 6/7/8
+          document
+            .getElementById("yourDiv7")
+            .attachEvent("onmousewheel", scrollHorizontally);
+        }
+      })();
+      (function () {
+        function scrollHorizontally(e) {
+          e = window.event || e;
+          var delta = Math.max(-1, Math.min(1, e.wheelDelta || -e.detail));
+          document.getElementById("yourDiv8").scrollLeft -= delta * 50; // Multiplied by 40
+          e.preventDefault();
+        }
+        if (document.getElementById("yourDiv8").addEventListener) {
+          // IE9, Chrome, Safari, Opera
+          document
+            .getElementById("yourDiv8")
+            .addEventListener("mousewheel", scrollHorizontally, false);
+          // Firefox
+          document
+            .getElementById("yourDiv8")
+            .addEventListener("DOMMouseScroll", scrollHorizontally, false);
+        } else {
+          // IE 6/7/8
+          document
+            .getElementById("yourDiv8")
+            .attachEvent("onmousewheel", scrollHorizontally);
+        }
+      })();
+      (function () {
+        function scrollHorizontally(e) {
+          e = window.event || e;
+          var delta = Math.max(-1, Math.min(1, e.wheelDelta || -e.detail));
+          document.getElementById("yourDiv9").scrollLeft -= delta * 50; // Multiplied by 40
+          e.preventDefault();
+        }
+        if (document.getElementById("yourDiv9").addEventListener) {
+          // IE9, Chrome, Safari, Opera
+          document
+            .getElementById("yourDiv9")
+            .addEventListener("mousewheel", scrollHorizontally, false);
+          // Firefox
+          document
+            .getElementById("yourDiv9")
+            .addEventListener("DOMMouseScroll", scrollHorizontally, false);
+        } else {
+          // IE 6/7/8
+          document
+            .getElementById("yourDiv9")
+            .attachEvent("onmousewheel", scrollHorizontally);
+        }
+      })();
+      (function () {
+        function scrollHorizontally(e) {
+          e = window.event || e;
+          var delta = Math.max(-1, Math.min(1, e.wheelDelta || -e.detail));
+          document.getElementById("yourDiv10").scrollLeft -= delta * 50; // Multiplied by 40
+          e.preventDefault();
+        }
+        if (document.getElementById("yourDiv10").addEventListener) {
+          // IE9, Chrome, Safari, Opera
+          document
+            .getElementById("yourDiv10")
+            .addEventListener("mousewheel", scrollHorizontally, false);
+          // Firefox
+          document
+            .getElementById("yourDiv10")
+            .addEventListener("DOMMouseScroll", scrollHorizontally, false);
+        } else {
+          // IE 6/7/8
+          document
+            .getElementById("yourDiv10")
+            .attachEvent("onmousewheel", scrollHorizontally);
+        }
+      })();
+      (function () {
+        function scrollHorizontally(e) {
+          e = window.event || e;
+          var delta = Math.max(-1, Math.min(1, e.wheelDelta || -e.detail));
+          document.getElementById("yourDiv11").scrollLeft -= delta * 50; // Multiplied by 40
+          e.preventDefault();
+        }
+        if (document.getElementById("yourDiv11").addEventListener) {
+          // IE9, Chrome, Safari, Opera
+          document
+            .getElementById("yourDiv11")
+            .addEventListener("mousewheel", scrollHorizontally, false);
+          // Firefox
+          document
+            .getElementById("yourDiv11")
+            .addEventListener("DOMMouseScroll", scrollHorizontally, false);
+        } else {
+          // IE 6/7/8
+          document
+            .getElementById("yourDiv11")
+            .attachEvent("onmousewheel", scrollHorizontally);
+        }
+      })();
     </script>
-   
-   
   </body>
 </html>
