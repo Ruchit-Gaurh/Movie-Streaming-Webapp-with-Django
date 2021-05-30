@@ -7,7 +7,7 @@ from django.views.generic import TemplateView
 def main_page(request):
     banner_title = main_poster.objects.values('mobile_title')
     poster = upload_serie.objects.get(title__contains=banner_title)
-    cat1 = category1.objects.all()
+    cat1 = category1.objects.all().order_by('-id')
     cat2 = category2.objects.all()
     cat3 = category3.objects.all()
     cat4 = category4.objects.all()
@@ -28,7 +28,7 @@ def main_page(request):
     cat9_name = category9_name.objects.all()
     cat10_name = category10_name.objects.all()
     recent = upload_serie.objects.all().order_by('-id')[:10]
-    context = {"poster":poster, 'cat1':cat1, 'cat2':cat2, 'cat3': cat3, 'cat4':cat4, 'cat5':cat5, 'cat6':cat6, 'cat7':cat7, 'cat8':cat8, 'cat9':cat9, 'cat10':cat10,'cat1_name':cat1_name, 'cat2':cat2_name, 'cat3_name': cat3_name, 'cat4_name':cat4_name, 'cat5_name':cat5_name, 'cat6_name':cat6_name, 'cat7_name':cat7_name, 'cat8_name':cat8_name, 'cat9_name':cat9_name, 'cat10_name':cat10_name, 'recent':recent}
+    context = {"poster":poster, 'cat1':cat1, 'cat2':cat2, 'cat3': cat3, 'cat4':cat4, 'cat5':cat5, 'cat6':cat6, 'cat7':cat7, 'cat8':cat8, 'cat9':cat9, 'cat10':cat10,'cat1_name':cat1_name, 'cat2_name':cat2_name, 'cat3_name': cat3_name, 'cat4_name':cat4_name, 'cat5_name':cat5_name, 'cat6_name':cat6_name, 'cat7_name':cat7_name, 'cat8_name':cat8_name, 'cat9_name':cat9_name, 'cat10_name':cat10_name, 'recent':recent}
     return render(request, "main.html", context)
 
 
