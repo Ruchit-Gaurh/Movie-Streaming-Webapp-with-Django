@@ -24,6 +24,9 @@ class upload_serie(models.Model):
     def __str__(self):
         return self.title
 
+    def get_absolute_url(self):
+        return f'/series/{self.url}'
+
 
 class episodesss(models.Model):
     Parent_serie = models.CharField(max_length=300)
@@ -35,6 +38,9 @@ class episodesss(models.Model):
 
     def __str__(self):
         return self.Parent_serie
+
+    def get_absolute_url(self):
+        return f'/series/{self.parent_url}/episode{self.onlyepisodenumber}'
 
 
 class epi(models.Model):
