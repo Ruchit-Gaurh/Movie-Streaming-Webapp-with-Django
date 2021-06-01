@@ -7,12 +7,16 @@ from django.views.generic import TemplateView
 def main_page(request):
     banner_title = main_poster.objects.values('mobile_title')
     poster = upload_serie.objects.get(title__contains=banner_title)
-    cat1 = category1.objects.all().order_by('?')
-    cat2 = category2.objects.all().order_by('?')
+    # cat1 = category1.objects.all().order_by('?')
+    cat1 = upload_serie.objects.filter(genres__icontains='Romantic Comedy').order_by('?')[:10]
+    # cat2 = category2.objects.all().order_by('?')
+    cat2 = upload_serie.objects.filter(genres__icontains='Suspense').order_by('?')[:10]
     # cat3 = category3.objects.all().order_by('?')
     cat3 = upload_serie.objects.filter(year__icontains=2021).order_by('?')[:10]
-    cat4 = category4.objects.all().order_by('?')
-    cat5 = category5.objects.all().order_by('?')
+    # cat4 = category4.objects.all().order_by('?')
+    cat4 = upload_serie.objects.filter(genres__icontains='Idol Drama').order_by('?')[:10]
+    # cat5 = category5.objects.all().order_by('?')
+    cat5 = upload_serie.objects.filter(genres__icontains='Fantasy').order_by('?')[:10]
     cat6 = category6.objects.all().order_by('?')
     cat7 = category7.objects.all().order_by('?')
     cat8 = category8.objects.all().order_by('?')

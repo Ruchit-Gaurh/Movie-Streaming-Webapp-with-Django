@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <meta name="msvalidate.01" content="85FF633245F1358BBDF796F394FD1378" />
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-93MQK01NET"></script>
     <script>
@@ -450,8 +451,8 @@
       <div class="row_posters" id="yourDiv2">
         {% for r in cat1%}
         <a class="row_poster1" href="series/{{r.url}}">
-          <img class="row_poster" src="{{r.serie_img}}" alt="" />
-          <h4 style="color: white">{{r.serie_tittle}}</h4>
+          <img class="row_poster" src="{{r.img}}" alt="" />
+          <h4 style="color: white">{{r.title}}</h4>
         </a>
         {% endfor %}
         <script type="text/javascript">
@@ -472,8 +473,8 @@
       <div class="row_posters" id="yourDiv3">
         {% for r in cat2%}
         <a class="row_poster1" href="series/{{r.url}}">
-          <img class="row_poster" src="{{r.serie_img}}" alt="" />
-          <h4 style="color: white">{{r.serie_tittle}}</h4>
+          <img class="row_poster" src="{{r.img}}" alt="" />
+          <h4 style="color: white">{{r.title}}</h4>
         </a>
         {% endfor %}
         <script type="text/javascript">
@@ -508,14 +509,14 @@
           document.write('<scr' + 'ipt type="text/javascript" src="http' + (location.protocol === 'https:' ? 's' : '') + '://www.creativeformatsnetwork.com/6c892bccbc3cb1da01e4ccae9f10f300/invoke.js"></scr' + 'ipt>');
         </script>
       </div>
-    <!-- </div>
+    </div>
     <div class="row">
       <h2>{{cat4_name.0.title}}</h2>
       <div class="row_posters" id="yourDiv5">
         {% for r in cat4%}
         <a class="row_poster1" href="series/{{r.url}}">
-          <img class="row_poster" src="{{r.serie_img}}" alt="" />
-          <h4 style="color: white">{{r.serie_tittle}}</h4>
+          <img class="row_poster" src="{{r.img}}" alt="" />
+          <h4 style="color: white">{{r.title}}</h4>
         </a>
         {% endfor %}
         <script type="text/javascript">
@@ -529,14 +530,14 @@
           document.write('<scr' + 'ipt type="text/javascript" src="http' + (location.protocol === 'https:' ? 's' : '') + '://www.creativeformatsnetwork.com/6c892bccbc3cb1da01e4ccae9f10f300/invoke.js"></scr' + 'ipt>');
         </script>
       </div>
-    </div> -->
-    <!-- <div class="row">
+    </div>
+    <div class="row">
       <h2>{{cat5_name.0.title}}</h2>
       <div class="row_posters" id="yourDiv6">
         {% for r in cat5%}
         <a class="row_poster1" href="series/{{r.url}}">
-          <img class="row_poster" src="{{r.serie_img}}" alt="" />
-          <h4 style="color: white">{{r.serie_tittle}}</h4>
+          <img class="row_poster" src="{{r.img}}" alt="" />
+          <h4 style="color: white">{{r.title}}</h4>
         </a>
         {% endfor %}
         <script type="text/javascript">
@@ -550,7 +551,7 @@
           document.write('<scr' + 'ipt type="text/javascript" src="http' + (location.protocol === 'https:' ? 's' : '') + '://www.creativeformatsnetwork.com/6c892bccbc3cb1da01e4ccae9f10f300/invoke.js"></scr' + 'ipt>');
         </script>
       </div>
-    </div> -->
+    </div>
     <!-- <div class="row">
       <h2>{{cat6_name.0.title}}</h2>
       <div class="row_posters" id="yourDiv7">
