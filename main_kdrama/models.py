@@ -37,7 +37,7 @@ class episodesss(models.Model):
     video_embed = models.CharField(max_length=600)
 
     def __str__(self):
-        return self.Parent_serie
+        return self.Parent_serie + self.episode_number
 
     def get_absolute_url(self):
         return f'/series/{self.parent_url}/episode{self.onlyepisodenumber}'
