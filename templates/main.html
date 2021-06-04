@@ -237,7 +237,6 @@
       }
 
       .banner {
-        margin-top: 67px;
         color: white;
         object-fit: contain;
       }
@@ -278,93 +277,72 @@
         transition: all 0.2s;
       }
 
-      .nav {
-        position: fixed;
-        top: 0;
-        width: 100%;
-        padding: 20px;
-        padding-top: 10px;
-        height: 67px;
-        display: flex;
-        justify-content: space-between;
-        z-index: 1;
-        background-color: #1a1a1a;
-        overflow-x: hidden;
-      }
-
-      .nav_logo {
-        filter: invert(100%);
-        position: fixed;
-        left: 20px;
-        width: 80px;
-        object-fit: contain;
-      }
-
-      .nav_black {
-        background-color: #1a1a1a;
-      }
-
-      .search_container {
-        color: white;
-        position: fixed;
-        object-fit: contain;
-        right: 0px;
-      }
-
-      .search_Form {
-        display: flex;
-        width: 95%;
-      }
-
-      .query {
-        color: white;
-        background-color: #1a1a1a;
-        width: 81%;
-        padding: 10px;
-        border: 2px solid grey;
-        border-radius: 5%;
-        margin-right: -7px;
-      }
-
-      .search_btn {
-        background-color: #1a1a1a;
-        width: 50px;
-        border-radius: 5%;
-        border: 2px solid grey;
-      }
-
-      .fa-search {
-        font-size: 1.5em;
-        color: #fff;
-      }
-
       .row_poster1 {
         text-decoration: none;
       }
+
     </style>
-    <div class="nav">
-      <a href="/">
-        <img
-          src="{% static 'imgbin_drama-youtube-logo-television-show-png.png' %}"
-          alt=""
-          class="nav_logo"
-        />
-      </a>
-      <div class="search_container">
-        <form class="search_Form" action="/search/results" method="get">
-          <input
-            class="query"
-            name="query"
-            id="query"
-            type="search"
-            placeholder="Search"
-          />
-          <button class="search_btn" type="submit">
-            <i class="fa fa-search"></i>
-          </button>
-        </form>
-      </div>
-    </div>
+          <nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-dark" style="background-color: #111!important;">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="/">
+                <img  src="{% static 'imgbin_drama-youtube-logo-television-show-png.png' %}" alt="" width="80" style="filter: invert(100%)" >
+              </a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/">Home</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Explore
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color: #111!important; color:white!important;">
+                      <style>
+                        .dropdown-item{
+                          color: white!important;
+                        }
+                        .dropdown-item:hover{
+                          color: black!important;
+                        }
+                      </style>
+                      <li><a class="dropdown-item" href="/explore/romantic-comedy">Romantic Comedy</a></li>
+                      <li><a class="dropdown-item" href="/explore/thriller">Thriller</a></li>
+                      <li><a class="dropdown-item" href="/explore/suspense">Suspense</a></li>
+                      <li><a class="dropdown-item" href="/explore/melodrama">Melodrama</a></li>
+                      <li><a class="dropdown-item" href="/explore/korean-drama">Korean Drama</a></li>
+                      <li><a class="dropdown-item" href="/explore/sports">Sports</a></li>
+                      <li><a class="dropdown-item" href="/explore/idol-drama">Idol Drama</a></li>
+                      <li><a class="dropdown-item" href="/explore/historical">Historical</a></li>
+                      <li><a class="dropdown-item" href="/explore/romance">Romance</a></li>
+                      <li><a class="dropdown-item" href="/explore/costume">Costume & Period</a></li>
+                      <li><a class="dropdown-item" href="/explore/music">Music</a></li>
+                      <li><a class="dropdown-item" href="/explore/action">Action</a></li>
+                      <li><a class="dropdown-item" href="/explore/fantasy">Fantasy</a></li>
+                      <li><a class="dropdown-item" href="/explore/supernatural">Supernatural</a></li>
+                      <li><a class="dropdown-item" href="/explore/crime">Crime</a></li>
+                      <li><a class="dropdown-item" href="/explore/mystery">Mystery</a></li>
+                    </ul>
+                  </li>
+                </ul>
+                <form class="d-flex" action="/search/results">
+                  <style>
+                    .btn-outline-success:hover{
+                      background-color: white!important;
+                      color: black!important;
+                    }
+                  </style>
+                  <input name="query" id="query" class="form-control me-2" type="search" placeholder="Search" aria-label="Search" style="background-color: #111!important; color:white;">
+                  <button class="btn btn-outline-success" type="submit" style="border-color: white!important; color: white;">Search</button>
+                </form>
+              </div>
+            </div>
+          </nav>
+          
+    
+  
 
     <header class="banner">
       <style>
@@ -918,6 +896,14 @@
             .attachEvent("onmousewheel", scrollHorizontally);
         }
       })(); 
+      function myFunction() {
+  var x = document.getElementById("myTopnav");
+  if (x.className === "topnav") {
+    x.className += " responsive";
+  } else {
+    x.className = "topnav";
+  }
+}
     </script>
     <!-- <script>(function(s,u,z,p){s.src=u,s.setAttribute('data-zone',z),p.appendChild(s);})(document.createElement('script'),'https://iclickcdn.com/tag.min.js',4268247,document.body||document.documentElement)</script>
     <script>

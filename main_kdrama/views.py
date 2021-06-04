@@ -45,6 +45,11 @@ def series_detail_view(request, title=None):
     return render(request, "series_detail_view.html", context)
 
 
+def explore(request, category=None):
+    cat_rep = category.replace('-', ' ')
+    exploree = upload_serie.objects.filter(genres__icontains= cat_rep)
+    return render(request, "explore.html", {'result': exploree})
+
 
 def play_view(request , number=None, title=None):
     episode = get_object_or_404(episodesss, onlyepisodenumber=number, parent_url=title)
