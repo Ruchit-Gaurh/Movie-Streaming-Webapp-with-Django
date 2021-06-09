@@ -18,7 +18,6 @@ class upload_serie(models.Model):
     year = models.IntegerField()
     genres = models.CharField(max_length=300)
     cast = models.CharField(max_length=300)
-    keywords = models.CharField(max_length=400, blank=True, null=True)
     episodes = models.IntegerField()
 
     def __str__(self):
