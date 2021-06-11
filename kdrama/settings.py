@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-q_&ygrup@g@30r2-r2vb3^!9&w6qeim+63qn9-xmonl7eby7j)'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['kdramaflix.herokuapp.com', '127.0.0.1']
 
@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     'main_kdrama.apps.MainKdramaConfig',
     'django.contrib.sites',
     'django.contrib.sitemaps',
-    'user_visit',
 ]
 SITE_ID= 1
 
@@ -53,7 +52,6 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
-    'user_visit.middleware.UserVisitMiddleware',
 ]
 
 ROOT_URLCONF = 'kdrama.urls'
