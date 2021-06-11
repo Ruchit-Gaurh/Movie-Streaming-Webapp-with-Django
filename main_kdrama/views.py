@@ -1,8 +1,7 @@
-from typing import get_args
-from django.core.checks.messages import Error
 from django.shortcuts import get_object_or_404, render
 from .models import main_poster, upload_serie, episodesss, epi, category1_name, category1, category2_name, category2, category3_name, category3, category4_name, category4, category5_name, category5, category6_name, category6, category7_name, category7, category8_name, category8, category9_name, category9, category10_name, category10, usertracker
-from django.views.generic import TemplateView
+import csv
+from django.http import HttpResponse
 
 # Create your views here.
 def main_page(request):
@@ -103,3 +102,32 @@ def search_result_page(request):
 
 
     
+def export_ip(request):
+    if not request.user.is_staff:
+        raise PermissionError
+    response = HttpResponse(content_type='text/csv')
+
+    writer = csv.writer(response)
+    writer.writerow(['user_ip', 'episode_watching', 'img', 'title'])
+
+    for userrrr in usertracker.objects.all().values_list('user_ip', 'episode_watching', 'img', 'title'):
+        writer.writerow(userrrr)
+
+    response['Content-Disposition'] = 'attachment; filename=usersip.csv'
+
+    return response
+
+def load_csv(request):
+    if not request.user.is_staff:
+        raise PermissionError
+    with open('usersip.csv') as f:
+        reader = csv.reader(f)
+        for row in reader:
+            _, created = usertracker.objects.get_or_create(
+                user_ip=row[0],
+                episode_watching=row[1],
+                img=row[2],
+                title=row[3],
+            )
+
+    return HttpResponse("Successfully Loaded csv file")

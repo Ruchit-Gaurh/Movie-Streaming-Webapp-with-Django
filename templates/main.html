@@ -447,9 +447,9 @@
     {% if history %}
     <div class="row">
       <h2>Continue Watching</h2>
-      <div class="row_posters" id="yourDiv" >
-        <i class="fa fa-angle-left left_button" id="scroll1_left" onclick="scroll1_left()" ></i>
-        <i class="fa fa-angle-right right_button" id="scroll1_right" onclick="scroll1_right()" ></i>
+      <div class="row_posters" id="yourDiv0" >
+        <i class="fa fa-angle-left left_button" id="scroll0_left" onclick="scroll0_left()" ></i>
+        <i class="fa fa-angle-right right_button" id="scroll0_right" onclick="scroll0_right()" ></i>
         {% for r in history%}
         <a
           style="text-decoration: none"
@@ -798,6 +798,31 @@
       }
       function scroll7_left(){
         document.getElementById('yourDiv7').scrollLeft -= scrollamountleft
+      }
+    }
+
+
+      var you0 = document.getElementById("yourDiv0");
+      if (widthofscreen > 1140){
+      you0.addEventListener("mouseover", function(){
+        document.getElementById("scroll0_left").style.display = "flex"
+      })
+      you0.addEventListener("mouseout", function(){
+        document.getElementById("scroll0_left").style.display = "none"
+      })
+      you0.addEventListener("mouseover", function(){
+        document.getElementById("scroll0_right").style.display = "flex"
+      })
+      you0.addEventListener("mouseout", function(){
+        document.getElementById("scroll0_right").style.display = "none"
+      })
+
+
+      function scroll0_right(){
+        document.getElementById('yourDiv0').scrollLeft += scrollamountleft
+      }
+      function scroll0_left(){
+        document.getElementById('yourDiv0').scrollLeft -= scrollamountleft
       }
     }
 
