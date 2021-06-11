@@ -76,7 +76,7 @@ def play_view(request , number=None, title=None):
 
     if usertracker.objects.filter(episode_watching= episode.parent_url):
         usertracker.objects.filter(episode_watching= episode.parent_url).delete()
-        user= usertracker(user_ip=ip , episode_watching= episode.parent_url, img= serie_view.img, title= serie_view.title)
+        user= usertracker(user_ip=ip , episode_watching= f'{episode.parent_url}/episode{number}', img= serie_view.img, title= serie_view.title)
         user.save()
     else:
         user= usertracker(user_ip=ip , episode_watching= episode.parent_url, img= serie_view.img, title= serie_view.title)
