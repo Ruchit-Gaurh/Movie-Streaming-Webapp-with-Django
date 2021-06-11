@@ -17,7 +17,8 @@ def main_page(request):
     cat4 = upload_serie.objects.filter(genres__icontains='Idol Drama').order_by('?')[:10]
     # cat5 = category5.objects.all().order_by('?')
     cat5 = upload_serie.objects.filter(genres__icontains='Fantasy').order_by('?')[:10]
-    cat6 = category6.objects.all().order_by('?')
+    # cat6 = category6.objects.all().order_by('?')
+    cat6 = upload_serie.objects.filter(genres__icontains='Netflix').order_by('?')[:10]
     cat7 = category7.objects.all().order_by('?')
     cat8 = category8.objects.all().order_by('?')
     cat9 = category9.objects.all().order_by('?')
@@ -47,7 +48,10 @@ def series_detail_view(request, title=None):
 
 def explore(request, category=None):
     cat_rep = category.replace('-', ' ')
-    exploree = upload_serie.objects.filter(genres__icontains= cat_rep)
+    if cat_rep != 'all':
+        exploree = upload_serie.objects.filter(genres__icontains= cat_rep)
+    else:
+        exploree = upload_serie.objects.all().order_by('title')
     return render(request, "explore.html", {'result': exploree})
 
 

@@ -128,6 +128,7 @@
         padding-bottom: 0;
         margin-bottom: 20px;
         margin-top: 20px;
+        scroll-behavior: smooth;
       }
 
       .row_posters::-webkit-scrollbar {
@@ -310,6 +311,7 @@
                           color: black!important;
                         }
                       </style>
+                      <li><a class="dropdown-item" href="/explore/all">All K-dramas</a></li>
                       <li><a class="dropdown-item" href="/explore/romantic-comedy">Romantic Comedy</a></li>
                       <li><a class="dropdown-item" href="/explore/thriller">Thriller</a></li>
                       <li><a class="dropdown-item" href="/explore/suspense">Suspense</a></li>
@@ -400,9 +402,50 @@
         </div>
       </a>
     </header>
+    <style>
+      .left_button{
+        color: white; 
+        display: none; 
+        position: absolute; 
+        z-index: 5; 
+        background-color: #1a1a1a; 
+        font-size: 2rem;
+        line-height: 1.2;     
+        border-radius: 50%;
+        width: 15px;
+        height: 15px;
+        box-shadow: 0 6px 12px rgb(0 0 0 / 70%);
+        justify-content: center;
+        align-items: center;
+        padding: 30px;
+        margin-top: 4.3%;
+        cursor: pointer;
+      }
+      .right_button{
+        color: white; 
+        display: none; 
+        position: absolute; 
+        z-index: 5; 
+        background-color: #1a1a1a; 
+        font-size: 2rem;
+        line-height: 1.2;     
+        border-radius: 50%;
+        width: 15px;
+        height: 15px;
+        box-shadow: 0 6px 12px rgb(0 0 0 / 70%);
+        justify-content: center;
+        align-items: center;
+        padding: 30px;
+        right: 10px;
+        margin-top: 4.3%;
+        cursor: pointer;
+      }
+    </style>
     <div class="row">
       <h2>Recently Added</h2>
-      <div class="row_posters" id="yourDiv">
+      <div class="row_posters" id="yourDiv" >
+        <i class="fa fa-angle-left left_button" id="scroll1_left" onclick="scroll1_left()" ></i>
+        <i class="fa fa-angle-right right_button" id="scroll1_right" onclick="scroll1_right()" ></i>
         {% for r in recent%}
         <a
           style="text-decoration: none"
@@ -413,146 +456,90 @@
           <h4 style="color: white">{{r.title}}</h4>
         </a>
         {% endfor %}
-        <script type="text/javascript">
-          atOptions = {
-            'key' : '6c892bccbc3cb1da01e4ccae9f10f300',
-            'format' : 'iframe',
-            'height' : 250,
-            'width' : 300,
-            'params' : {}
-          };
-          document.write('<scr' + 'ipt type="text/javascript" src="http' + (location.protocol === 'https:' ? 's' : '') + '://www.creativeformatsnetwork.com/6c892bccbc3cb1da01e4ccae9f10f300/invoke.js"></scr' + 'ipt>');
-        </script>
+      </div>
+    </div>
+
+    <div class="row">
+      <h2>{{cat6_name.0.title}}</h2>
+      <div class="row_posters" id="yourDiv7">
+        <i class="fa fa-angle-left left_button" id="scroll7_left" onclick="scroll7_left()" ></i>
+        <i class="fa fa-angle-right right_button" id="scroll7_right" onclick="scroll7_right()" ></i>
+        {% for r in cat6%}
+        <a class="row_poster1" href="series/{{r.url}}">
+          <img class="row_poster" src="{{r.img}}" alt="" />
+          <h4 style="color: white">{{r.title}}</h4>
+        </a>
+        {% endfor %}
       </div>
     </div>
 
     <div class="row">
       <h2>{{cat1_name.0.title}}</h2>
       <div class="row_posters" id="yourDiv2">
+        <i class="fa fa-angle-left left_button" id="scroll2_left" onclick="scroll2_left()" ></i>
+        <i class="fa fa-angle-right right_button" id="scroll2_right" onclick="scroll2_right()" ></i>
         {% for r in cat1%}
         <a class="row_poster1" href="series/{{r.url}}">
           <img class="row_poster" src="{{r.img}}" alt="" />
           <h4 style="color: white">{{r.title}}</h4>
         </a>
         {% endfor %}
-        <script type="text/javascript">
-          atOptions = {
-            'key' : '6c892bccbc3cb1da01e4ccae9f10f300',
-            'format' : 'iframe',
-            'height' : 250,
-            'width' : 300,
-            'params' : {}
-          };
-          document.write('<scr' + 'ipt type="text/javascript" src="http' + (location.protocol === 'https:' ? 's' : '') + '://www.creativeformatsnetwork.com/6c892bccbc3cb1da01e4ccae9f10f300/invoke.js"></scr' + 'ipt>');
-        </script>
         
       </div>
     </div>
     <div class="row">
       <h2>{{cat2_name.0.title}}</h2>
       <div class="row_posters" id="yourDiv3">
+        <i class="fa fa-angle-left left_button" id="scroll3_left" onclick="scroll3_left()" ></i>
+        <i class="fa fa-angle-right right_button" id="scroll3_right" onclick="scroll3_right()" ></i>
         {% for r in cat2%}
         <a class="row_poster1" href="series/{{r.url}}">
           <img class="row_poster" src="{{r.img}}" alt="" />
           <h4 style="color: white">{{r.title}}</h4>
         </a>
         {% endfor %}
-        <script type="text/javascript">
-          atOptions = {
-            'key' : '6c892bccbc3cb1da01e4ccae9f10f300',
-            'format' : 'iframe',
-            'height' : 250,
-            'width' : 300,
-            'params' : {}
-          };
-          document.write('<scr' + 'ipt type="text/javascript" src="http' + (location.protocol === 'https:' ? 's' : '') + '://www.creativeformatsnetwork.com/6c892bccbc3cb1da01e4ccae9f10f300/invoke.js"></scr' + 'ipt>');
-        </script>
       </div>
     </div>
     <div class="row">
       <h2>{{cat3_name.0.title}}</h2>
       <div class="row_posters" id="yourDiv4">
+        <i class="fa fa-angle-left left_button" id="scroll4_left" onclick="scroll4_left()" ></i>
+        <i class="fa fa-angle-right right_button" id="scroll4_right" onclick="scroll4_right()" ></i>
         {% for r in cat3%}
         <a class="row_poster1" href="series/{{r.url}}">
           <img class="row_poster" src="{{r.img}}" alt="" />
           <h4 style="color: white">{{r.title}}</h4>
         </a>
         {% endfor %}
-        <script type="text/javascript">
-          atOptions = {
-            'key' : '6c892bccbc3cb1da01e4ccae9f10f300',
-            'format' : 'iframe',
-            'height' : 250,
-            'width' : 300,
-            'params' : {}
-          };
-          document.write('<scr' + 'ipt type="text/javascript" src="http' + (location.protocol === 'https:' ? 's' : '') + '://www.creativeformatsnetwork.com/6c892bccbc3cb1da01e4ccae9f10f300/invoke.js"></scr' + 'ipt>');
-        </script>
       </div>
     </div>
     <div class="row">
       <h2>{{cat4_name.0.title}}</h2>
       <div class="row_posters" id="yourDiv5">
+        <i class="fa fa-angle-left left_button" id="scroll5_left" onclick="scroll5_left()" ></i>
+        <i class="fa fa-angle-right right_button" id="scroll5_right" onclick="scroll5_right()" ></i>
         {% for r in cat4%}
         <a class="row_poster1" href="series/{{r.url}}">
           <img class="row_poster" src="{{r.img}}" alt="" />
           <h4 style="color: white">{{r.title}}</h4>
         </a>
         {% endfor %}
-        <script type="text/javascript">
-          atOptions = {
-            'key' : '6c892bccbc3cb1da01e4ccae9f10f300',
-            'format' : 'iframe',
-            'height' : 250,
-            'width' : 300,
-            'params' : {}
-          };
-          document.write('<scr' + 'ipt type="text/javascript" src="http' + (location.protocol === 'https:' ? 's' : '') + '://www.creativeformatsnetwork.com/6c892bccbc3cb1da01e4ccae9f10f300/invoke.js"></scr' + 'ipt>');
-        </script>
       </div>
     </div>
     <div class="row">
       <h2>{{cat5_name.0.title}}</h2>
       <div class="row_posters" id="yourDiv6">
+        <i class="fa fa-angle-left left_button" id="scroll6_left" onclick="scroll6_left()" ></i>
+        <i class="fa fa-angle-right right_button" id="scroll6_right" onclick="scroll6_right()" ></i>
         {% for r in cat5%}
         <a class="row_poster1" href="series/{{r.url}}">
           <img class="row_poster" src="{{r.img}}" alt="" />
           <h4 style="color: white">{{r.title}}</h4>
         </a>
         {% endfor %}
-        <script type="text/javascript">
-          atOptions = {
-            'key' : '6c892bccbc3cb1da01e4ccae9f10f300',
-            'format' : 'iframe',
-            'height' : 250,
-            'width' : 300,
-            'params' : {}
-          };
-          document.write('<scr' + 'ipt type="text/javascript" src="http' + (location.protocol === 'https:' ? 's' : '') + '://www.creativeformatsnetwork.com/6c892bccbc3cb1da01e4ccae9f10f300/invoke.js"></scr' + 'ipt>');
-        </script>
       </div>
     </div>
-    <!-- <div class="row">
-      <h2>{{cat6_name.0.title}}</h2>
-      <div class="row_posters" id="yourDiv7">
-        {% for r in cat6%}
-        <a class="row_poster1" href="series/{{r.url}}">
-          <img class="row_poster" src="{{r.serie_img}}" alt="" />
-          <h4 style="color: white">{{r.serie_tittle}}</h4>
-        </a>
-        {% endfor %}
-        <script type="text/javascript">
-          atOptions = {
-            'key' : '6c892bccbc3cb1da01e4ccae9f10f300',
-            'format' : 'iframe',
-            'height' : 250,
-            'width' : 300,
-            'params' : {}
-          };
-          document.write('<scr' + 'ipt type="text/javascript" src="http' + (location.protocol === 'https:' ? 's' : '') + '://www.creativeformatsnetwork.com/6c892bccbc3cb1da01e4ccae9f10f300/invoke.js"></scr' + 'ipt>');
-        </script>
-      </div>
-    </div> -->
+    
     <!-- <div class="row">
       <h2>{{cat7_name.0.title}}</h2>
       <div class="row_posters" id="yourDiv8">
@@ -562,16 +549,6 @@
           <h4 style="color: white">{{r.serie_tittle}}</h4>
         </a>
         {% endfor %}
-        <script type="text/javascript">
-          atOptions = {
-            'key' : '6c892bccbc3cb1da01e4ccae9f10f300',
-            'format' : 'iframe',
-            'height' : 250,
-            'width' : 300,
-            'params' : {}
-          };
-          document.write('<scr' + 'ipt type="text/javascript" src="http' + (location.protocol === 'https:' ? 's' : '') + '://www.creativeformatsnetwork.com/6c892bccbc3cb1da01e4ccae9f10f300/invoke.js"></scr' + 'ipt>');
-        </script>
       </div>
     </div> -->
     <!-- <div class="row">
@@ -583,16 +560,6 @@
           <h4 style="color: white">{{r.serie_tittle}}</h4>
         </a>
         {% endfor %}
-        <script type="text/javascript">
-          atOptions = {
-            'key' : '6c892bccbc3cb1da01e4ccae9f10f300',
-            'format' : 'iframe',
-            'height' : 250,
-            'width' : 300,
-            'params' : {}
-          };
-          document.write('<scr' + 'ipt type="text/javascript" src="http' + (location.protocol === 'https:' ? 's' : '') + '://www.creativeformatsnetwork.com/6c892bccbc3cb1da01e4ccae9f10f300/invoke.js"></scr' + 'ipt>');
-        </script>
       </div>
     </div> -->
     <!-- <div class="row">
@@ -604,16 +571,6 @@
           <h4 style="color: white">{{r.serie_tittle}}</h4>
         </a>
         {% endfor %}
-        <script type="text/javascript">
-          atOptions = {
-            'key' : '6c892bccbc3cb1da01e4ccae9f10f300',
-            'format' : 'iframe',
-            'height' : 250,
-            'width' : 300,
-            'params' : {}
-          };
-          document.write('<scr' + 'ipt type="text/javascript" src="http' + (location.protocol === 'https:' ? 's' : '') + '://www.creativeformatsnetwork.com/6c892bccbc3cb1da01e4ccae9f10f300/invoke.js"></scr' + 'ipt>');
-        </script>
       </div>
     </div> -->
     <!-- <div class="row">
@@ -625,16 +582,6 @@
           <h4 style="color: white">{{r.serie_tittle}}</h4>
         </a>
         {% endfor %}
-        <script type="text/javascript">
-          atOptions = {
-            'key' : '6c892bccbc3cb1da01e4ccae9f10f300',
-            'format' : 'iframe',
-            'height' : 250,
-            'width' : 300,
-            'params' : {}
-          };
-          document.write('<scr' + 'ipt type="text/javascript" src="http' + (location.protocol === 'https:' ? 's' : '') + '://www.creativeformatsnetwork.com/6c892bccbc3cb1da01e4ccae9f10f300/invoke.js"></scr' + 'ipt>');
-        </script>
       </div>
     </div> -->
 
@@ -654,250 +601,184 @@
         }
       });
 
-      (function () {
-        function scrollHorizontally(e) {
-          e = window.event || e;
-          var delta = Math.max(-1, Math.min(1, e.wheelDelta || -e.detail));
-          document.getElementById("yourDiv").scrollLeft -= delta * 50;
-          e.preventDefault();
+      var scrollamountleft = screen.width/1.1
+      var widthofscreen = screen.width
+
+      var you1 = document.getElementById("yourDiv");
+      if (widthofscreen > 1140){
+        you1.addEventListener("mouseover", function(){
+          document.getElementById("scroll1_left").style.display = "flex"
+        })
+        you1.addEventListener("mouseout", function(){
+          document.getElementById("scroll1_left").style.display = "none"
+        })
+        you1.addEventListener("mouseover", function(){
+          document.getElementById("scroll1_right").style.display = "flex"
+        })
+        you1.addEventListener("mouseout", function(){
+          document.getElementById("scroll1_right").style.display = "none"
+        })
+
+
+        function scroll1_right(){
+          document.getElementById('yourDiv').scrollLeft += scrollamountleft
         }
-        if (document.getElementById("yourDiv").addEventListener) {
-          document
-            .getElementById("yourDiv")
-            .addEventListener("mousewheel", scrollHorizontally, false);
-          document
-            .getElementById("yourDiv")
-            .addEventListener("DOMMouseScroll", scrollHorizontally, false);
-        } else {
-          document
-            .getElementById("yourDiv")
-            .attachEvent("onmousewheel", scrollHorizontally);
+        function scroll1_left(){
+          document.getElementById('yourDiv').scrollLeft -= scrollamountleft
         }
-      })();
-      (function () {
-        function scrollHorizontally(e) {
-          e = window.event || e;
-          var delta = Math.max(-1, Math.min(1, e.wheelDelta || -e.detail));
-          document.getElementById("yourDiv2").scrollLeft -= delta * 50; 
-          e.preventDefault();
-        }
-        if (document.getElementById("yourDiv2").addEventListener) {
-          document
-            .getElementById("yourDiv2")
-            .addEventListener("mousewheel", scrollHorizontally, false);
-          document
-            .getElementById("yourDiv2")
-            .addEventListener("DOMMouseScroll", scrollHorizontally, false);
-        } else {
-          document
-            .getElementById("yourDiv2")
-            .attachEvent("onmousewheel", scrollHorizontally);
-        }
-      })();
-      (function () {
-        function scrollHorizontally(e) {
-          e = window.event || e;
-          var delta = Math.max(-1, Math.min(1, e.wheelDelta || -e.detail));
-          document.getElementById("yourDiv3").scrollLeft -= delta * 50; 
-          e.preventDefault();
-        }
-        if (document.getElementById("yourDiv3").addEventListener) {
-          document
-            .getElementById("yourDiv3")
-            .addEventListener("mousewheel", scrollHorizontally, false);
-          document
-            .getElementById("yourDiv3")
-            .addEventListener("DOMMouseScroll", scrollHorizontally, false);
-        } else {
-          document
-            .getElementById("yourDiv3")
-            .attachEvent("onmousewheel", scrollHorizontally);
-        }
-      })();
-      (function () {
-        function scrollHorizontally(e) {
-          e = window.event || e;
-          var delta = Math.max(-1, Math.min(1, e.wheelDelta || -e.detail));
-          document.getElementById("yourDiv4").scrollLeft -= delta * 50; // Multiplied by 40
-          e.preventDefault();
-        }
-        if (document.getElementById("yourDiv4").addEventListener) {
-          // IE9, Chrome, Safari, Opera
-          document
-            .getElementById("yourDiv4")
-            .addEventListener("mousewheel", scrollHorizontally, false);
-          // Firefox
-          document
-            .getElementById("yourDiv4")
-            .addEventListener("DOMMouseScroll", scrollHorizontally, false);
-        } else {
-          // IE 6/7/8
-          document
-            .getElementById("yourDiv4")
-            .attachEvent("onmousewheel", scrollHorizontally);
-        }
-      })();
-      (function () {
-        function scrollHorizontally(e) {
-          e = window.event || e;
-          var delta = Math.max(-1, Math.min(1, e.wheelDelta || -e.detail));
-          document.getElementById("yourDiv5").scrollLeft -= delta * 50; // Multiplied by 40
-          e.preventDefault();
-        }
-        if (document.getElementById("yourDiv5").addEventListener) {
-          // IE9, Chrome, Safari, Opera
-          document
-            .getElementById("yourDiv5")
-            .addEventListener("mousewheel", scrollHorizontally, false);
-          // Firefox
-          document
-            .getElementById("yourDiv5")
-            .addEventListener("DOMMouseScroll", scrollHorizontally, false);
-        } else {
-          // IE 6/7/8
-          document
-            .getElementById("yourDiv5")
-            .attachEvent("onmousewheel", scrollHorizontally);
-        }
-      })();
-      (function () {
-        function scrollHorizontally(e) {
-          e = window.event || e;
-          var delta = Math.max(-1, Math.min(1, e.wheelDelta || -e.detail));
-          document.getElementById("yourDiv6").scrollLeft -= delta * 50; // Multiplied by 40
-          e.preventDefault();
-        }
-        if (document.getElementById("yourDiv6").addEventListener) {
-          // IE9, Chrome, Safari, Opera
-          document
-            .getElementById("yourDiv6")
-            .addEventListener("mousewheel", scrollHorizontally, false);
-          // Firefox
-          document
-            .getElementById("yourDiv6")
-            .addEventListener("DOMMouseScroll", scrollHorizontally, false);
-        } else {
-          // IE 6/7/8
-          document
-            .getElementById("yourDiv6")
-            .attachEvent("onmousewheel", scrollHorizontally);
-        }
-      })();
-      (function () {
-        function scrollHorizontally(e) {
-          e = window.event || e;
-          var delta = Math.max(-1, Math.min(1, e.wheelDelta || -e.detail));
-          document.getElementById("yourDiv7").scrollLeft -= delta * 50; // Multiplied by 40
-          e.preventDefault();
-        }
-        if (document.getElementById("yourDiv7").addEventListener) {
-          // IE9, Chrome, Safari, Opera
-          document
-            .getElementById("yourDiv7")
-            .addEventListener("mousewheel", scrollHorizontally, false);
-          // Firefox
-          document
-            .getElementById("yourDiv7")
-            .addEventListener("DOMMouseScroll", scrollHorizontally, false);
-        } else {
-          // IE 6/7/8
-          document
-            .getElementById("yourDiv7")
-            .attachEvent("onmousewheel", scrollHorizontally);
-        }
-      })();
-      (function () {
-        function scrollHorizontally(e) {
-          e = window.event || e;
-          var delta = Math.max(-1, Math.min(1, e.wheelDelta || -e.detail));
-          document.getElementById("yourDiv8").scrollLeft -= delta * 50; // Multiplied by 40
-          e.preventDefault();
-        }
-        if (document.getElementById("yourDiv8").addEventListener) {
-          // IE9, Chrome, Safari, Opera
-          document
-            .getElementById("yourDiv8")
-            .addEventListener("mousewheel", scrollHorizontally, false);
-          // Firefox
-          document
-            .getElementById("yourDiv8")
-            .addEventListener("DOMMouseScroll", scrollHorizontally, false);
-        } else {
-          // IE 6/7/8
-          document
-            .getElementById("yourDiv8")
-            .attachEvent("onmousewheel", scrollHorizontally);
-        }
-      })();
-      (function () {
-        function scrollHorizontally(e) {
-          e = window.event || e;
-          var delta = Math.max(-1, Math.min(1, e.wheelDelta || -e.detail));
-          document.getElementById("yourDiv9").scrollLeft -= delta * 50; // Multiplied by 40
-          e.preventDefault();
-        }
-        if (document.getElementById("yourDiv9").addEventListener) {
-          // IE9, Chrome, Safari, Opera
-          document
-            .getElementById("yourDiv9")
-            .addEventListener("mousewheel", scrollHorizontally, false);
-          // Firefox
-          document
-            .getElementById("yourDiv9")
-            .addEventListener("DOMMouseScroll", scrollHorizontally, false);
-        } else {
-          // IE 6/7/8
-          document
-            .getElementById("yourDiv9")
-            .attachEvent("onmousewheel", scrollHorizontally);
-        }
-      })();
-      (function () {
-        function scrollHorizontally(e) {
-          e = window.event || e;
-          var delta = Math.max(-1, Math.min(1, e.wheelDelta || -e.detail));
-          document.getElementById("yourDiv10").scrollLeft -= delta * 50; // Multiplied by 40
-          e.preventDefault();
-        }
-        if (document.getElementById("yourDiv10").addEventListener) {
-          // IE9, Chrome, Safari, Opera
-          document
-            .getElementById("yourDiv10")
-            .addEventListener("mousewheel", scrollHorizontally, false);
-          // Firefox
-          document
-            .getElementById("yourDiv10")
-            .addEventListener("DOMMouseScroll", scrollHorizontally, false);
-        } else {
-          // IE 6/7/8
-          document
-            .getElementById("yourDiv10")
-            .attachEvent("onmousewheel", scrollHorizontally);
-        }
-      })();
-      (function () {
-        function scrollHorizontally(e) {
-          e = window.event || e;
-          var delta = Math.max(-1, Math.min(1, e.wheelDelta || -e.detail));
-          document.getElementById("yourDiv11").scrollLeft -= delta * 50; // Multiplied by 40
-          e.preventDefault();
-        }
-        if (document.getElementById("yourDiv11").addEventListener) {
-          // IE9, Chrome, Safari, Opera
-          document
-            .getElementById("yourDiv11")
-            .addEventListener("mousewheel", scrollHorizontally, false);
-          // Firefox
-          document
-            .getElementById("yourDiv11")
-            .addEventListener("DOMMouseScroll", scrollHorizontally, false);
-        } else {
-          // IE 6/7/8
-          document
-            .getElementById("yourDiv11")
-            .attachEvent("onmousewheel", scrollHorizontally);
-        }
-      })(); 
+      }
+
+
+      var you2 = document.getElementById("yourDiv2");
+      if (widthofscreen > 1140){
+      you2.addEventListener("mouseover", function(){
+        document.getElementById("scroll2_left").style.display = "flex"
+      })
+      you2.addEventListener("mouseout", function(){
+        document.getElementById("scroll2_left").style.display = "none"
+      })
+      you2.addEventListener("mouseover", function(){
+        document.getElementById("scroll2_right").style.display = "flex"
+      })
+      you2.addEventListener("mouseout", function(){
+        document.getElementById("scroll2_right").style.display = "none"
+      })
+    }
+
+
+      function scroll2_right(){
+        document.getElementById('yourDiv2').scrollLeft += scrollamountleft
+      }
+      function scroll2_left(){
+        document.getElementById('yourDiv2').scrollLeft -= scrollamountleft
+      }
+
+
+
+
+      var you3 = document.getElementById("yourDiv3");
+      if (widthofscreen > 1140){
+      you3.addEventListener("mouseover", function(){
+        document.getElementById("scroll3_left").style.display = "flex"
+      })
+      you3.addEventListener("mouseout", function(){
+        document.getElementById("scroll3_left").style.display = "none"
+      })
+      you3.addEventListener("mouseover", function(){
+        document.getElementById("scroll3_right").style.display = "flex"
+      })
+      you3.addEventListener("mouseout", function(){
+        document.getElementById("scroll3_right").style.display = "none"
+      })
+
+
+      function scroll3_right(){
+        document.getElementById('yourDiv3').scrollLeft += scrollamountleft
+      }
+      function scroll3_left(){
+        document.getElementById('yourDiv3').scrollLeft -= scrollamountleft
+      }
+    }
+
+
+
+      var you4 = document.getElementById("yourDiv4");
+      if (widthofscreen > 1140){
+      you4.addEventListener("mouseover", function(){
+        document.getElementById("scroll4_left").style.display = "flex"
+      })
+      you4.addEventListener("mouseout", function(){
+        document.getElementById("scroll4_left").style.display = "none"
+      })
+      you4.addEventListener("mouseover", function(){
+        document.getElementById("scroll4_right").style.display = "flex"
+      })
+      you4.addEventListener("mouseout", function(){
+        document.getElementById("scroll4_right").style.display = "none"
+      })
+
+
+      function scroll4_right(){
+        document.getElementById('yourDiv4').scrollLeft += scrollamountleft
+      }
+      function scroll4_left(){
+        document.getElementById('yourDiv4').scrollLeft -= scrollamountleft
+      }
+    }
+      var you5 = document.getElementById("yourDiv5");
+      if (widthofscreen > 1140){
+      you5.addEventListener("mouseover", function(){
+        document.getElementById("scroll5_left").style.display = "flex"
+      })
+      you5.addEventListener("mouseout", function(){
+        document.getElementById("scroll5_left").style.display = "none"
+      })
+      you5.addEventListener("mouseover", function(){
+        document.getElementById("scroll5_right").style.display = "flex"
+      })
+      you5.addEventListener("mouseout", function(){
+        document.getElementById("scroll5_right").style.display = "none"
+      })
+
+
+      function scroll5_right(){
+        document.getElementById('yourDiv5').scrollLeft += scrollamountleft
+      }
+      function scroll5_left(){
+        document.getElementById('yourDiv5').scrollLeft -= scrollamountleft
+      }
+    }
+      var you6 = document.getElementById("yourDiv6");
+      if (widthofscreen > 1140){
+      you6.addEventListener("mouseover", function(){
+        document.getElementById("scroll6_left").style.display = "flex"
+      })
+      you6.addEventListener("mouseout", function(){
+        document.getElementById("scroll6_left").style.display = "none"
+      })
+      you6.addEventListener("mouseover", function(){
+        document.getElementById("scroll6_right").style.display = "flex"
+      })
+      you6.addEventListener("mouseout", function(){
+        document.getElementById("scroll6_right").style.display = "none"
+      })
+
+
+      function scroll6_right(){
+        document.getElementById('yourDiv6').scrollLeft += scrollamountleft
+      }
+      function scroll6_left(){
+        document.getElementById('yourDiv6').scrollLeft -= scrollamountleft
+      }
+    }
+
+
+
+      var you7 = document.getElementById("yourDiv7");
+      if (widthofscreen > 1140){
+      you7.addEventListener("mouseover", function(){
+        document.getElementById("scroll7_left").style.display = "flex"
+      })
+      you7.addEventListener("mouseout", function(){
+        document.getElementById("scroll7_left").style.display = "none"
+      })
+      you7.addEventListener("mouseover", function(){
+        document.getElementById("scroll7_right").style.display = "flex"
+      })
+      you7.addEventListener("mouseout", function(){
+        document.getElementById("scroll7_right").style.display = "none"
+      })
+
+
+      function scroll7_right(){
+        document.getElementById('yourDiv7').scrollLeft += scrollamountleft
+      }
+      function scroll7_left(){
+        document.getElementById('yourDiv7').scrollLeft -= scrollamountleft
+      }
+    }
+
+      
       function myFunction() {
   var x = document.getElementById("myTopnav");
   if (x.className === "topnav") {
