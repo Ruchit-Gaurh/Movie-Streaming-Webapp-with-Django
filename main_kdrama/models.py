@@ -196,3 +196,13 @@ class category10(models.Model):
 
     def __str__(self):
         return "category 10" + self.serie_tittle
+
+
+class usertracker(models.Model):
+    user_ip = models.CharField(max_length=300, blank=True, null=True)
+    episode_watching = models.CharField(max_length=300)
+    img = models.URLField()
+    title = models.CharField(max_length=300)
+
+    def __str__(self):
+        return self.user_ip

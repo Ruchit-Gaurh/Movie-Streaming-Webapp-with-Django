@@ -1,10 +1,19 @@
+from typing import get_args
 from django.core.checks.messages import Error
 from django.shortcuts import get_object_or_404, render
-from .models import main_poster, upload_serie, episodesss, epi, category1_name, category1, category2_name, category2, category3_name, category3, category4_name, category4, category5_name, category5, category6_name, category6, category7_name, category7, category8_name, category8, category9_name, category9, category10_name, category10
+from .models import main_poster, upload_serie, episodesss, epi, category1_name, category1, category2_name, category2, category3_name, category3, category4_name, category4, category5_name, category5, category6_name, category6, category7_name, category7, category8_name, category8, category9_name, category9, category10_name, category10, usertracker
 from django.views.generic import TemplateView
 
 # Create your views here.
 def main_page(request):
+    x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
+
+    if x_forwarded_for:
+        ip = x_forwarded_for.split(',')[0]
+    else:
+        ip = request.META.get('REMOTE_ADDR')
+
+    user_watch_history = usertracker.objects.filter(user_ip=ip).order_by('-id')[:20]
     banner_title = main_poster.objects.values('mobile_title')
     poster = upload_serie.objects.get(title__contains=banner_title)
     # cat1 = category1.objects.all().order_by('?')
@@ -34,7 +43,7 @@ def main_page(request):
     cat9_name = category9_name.objects.all()
     cat10_name = category10_name.objects.all()
     recent = upload_serie.objects.all().order_by('-id')[:20]
-    context = {"poster":poster, 'cat1':cat1, 'cat2':cat2, 'cat3': cat3, 'cat4':cat4, 'cat5':cat5, 'cat6':cat6, 'cat7':cat7, 'cat8':cat8, 'cat9':cat9, 'cat10':cat10,'cat1_name':cat1_name, 'cat2_name':cat2_name, 'cat3_name': cat3_name, 'cat4_name':cat4_name, 'cat5_name':cat5_name, 'cat6_name':cat6_name, 'cat7_name':cat7_name, 'cat8_name':cat8_name, 'cat9_name':cat9_name, 'cat10_name':cat10_name, 'recent':recent}
+    context = {"poster":poster, 'cat1':cat1, 'cat2':cat2, 'cat3': cat3, 'cat4':cat4, 'cat5':cat5, 'cat6':cat6, 'cat7':cat7, 'cat8':cat8, 'cat9':cat9, 'cat10':cat10,'cat1_name':cat1_name, 'cat2_name':cat2_name, 'cat3_name': cat3_name, 'cat4_name':cat4_name, 'cat5_name':cat5_name, 'cat6_name':cat6_name, 'cat7_name':cat7_name, 'cat8_name':cat8_name, 'cat9_name':cat9_name, 'cat10_name':cat10_name, 'recent':recent, 'history':user_watch_history}
     return render(request, "main.html", context)
 
 
@@ -57,6 +66,22 @@ def explore(request, category=None):
 
 def play_view(request , number=None, title=None):
     episode = get_object_or_404(episodesss, onlyepisodenumber=number, parent_url=title)
+    serie_view = get_object_or_404(upload_serie, url=title)
+    x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
+
+    if x_forwarded_for:
+        ip = x_forwarded_for.split(',')[0]
+    else:
+        ip = request.META.get('REMOTE_ADDR')
+
+    if usertracker.objects.filter(episode_watching= episode.parent_url):
+        usertracker.objects.filter(episode_watching= episode.parent_url).delete()
+        user= usertracker(user_ip=ip , episode_watching= episode.parent_url, img= serie_view.img, title= serie_view.title)
+        user.save()
+    else:
+        user= usertracker(user_ip=ip , episode_watching= episode.parent_url, img= serie_view.img, title= serie_view.title)
+        user.save()
+
     return render(request, "player.html", {'episode':episode})
 
 def sitemap_func(request):
@@ -75,3 +100,6 @@ def search_result_page(request):
     
     params = {'result': uploadTDKGE, 'query':query}
     return render(request, "search.html", params)
+
+
+    

@@ -160,6 +160,7 @@
           object-fit: contain;
           width: 100%;
           min-width: 50%;
+          max-width: 50%;
           margin-right: 17px;
           margin-left: -7px;
           transition: transform 450ms;
@@ -194,6 +195,7 @@
           object-fit: contain;
           width: 100%;
           min-width: 33%;
+          max-width: 33%;
           margin-right: 17px;
           margin-left: -7px;
           transition: transform 450ms;
@@ -218,6 +220,7 @@
         }
         .row_poster1 {
           min-width: 23%;
+          max-width: 23%;
           border-radius: 5px;
           object-fit: contain;
           width: 100%;
@@ -441,6 +444,26 @@
         cursor: pointer;
       }
     </style>
+    {% if history %}
+    <div class="row">
+      <h2>Continue Watching</h2>
+      <div class="row_posters" id="yourDiv" >
+        <i class="fa fa-angle-left left_button" id="scroll1_left" onclick="scroll1_left()" ></i>
+        <i class="fa fa-angle-right right_button" id="scroll1_right" onclick="scroll1_right()" ></i>
+        {% for r in history%}
+        <a
+          style="text-decoration: none"
+          class="row_poster1"
+          href="series/{{r.episode_watching}}"
+        >
+          <img class="row_poster" src="{{r.img}}" alt="" />
+          <h4 style="color: white">{{r.title}}</h4>
+        </a>
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+
     <div class="row">
       <h2>Recently Added</h2>
       <div class="row_posters" id="yourDiv" >
