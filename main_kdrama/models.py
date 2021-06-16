@@ -14,7 +14,6 @@ class upload_serie(models.Model):
     title = models.CharField(max_length=300)
     image_description = models.CharField(max_length=1000)
     url = models.CharField(max_length=200)
-    korean_title = models.CharField(max_length=300)
     year = models.IntegerField()
     genres = models.CharField(max_length=300)
     cast = models.CharField(max_length=300)
