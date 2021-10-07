@@ -38,6 +38,7 @@
 .banner{
     color: white;
     object-fit: contain;
+    margin-top: 60px;
 }
 
 .banner_content{
@@ -142,12 +143,13 @@
     position: fixed;
     top: 0;
     width: 100%;
-    padding: 20px;
+    /* padding: 20px; */
     padding-top: 10px;
     height: 50px;
     display: flex;
     justify-content: space-between;
     z-index: 1;
+    background-color: #1a1a1a;
 } 
 
 .nav_logo{
@@ -368,7 +370,7 @@
       
     <header class="banner">
         <style>
-            @media screen and (max-width: 414px) {
+            /* @media screen and (max-width: 414px) {
                 .banner_contents{
                     background-image: url({{serie_view.img}});
                 }
@@ -392,51 +394,25 @@
                 .banner_contents{
                     background-image: url({{serie_view.min_width1600}});
                 }
-            }
+            } */
         </style>
         <a  style="text-decoration: none; color: white;">
           <div class="banner_contents" style="background-size: cover;">
-              <div class="banner_content">
-                  <h1 class="banner_title">
-                      <h1>{{serie_view.title}}</h1>
-                  </h1>
-                  <h2 class="korean_title">
-                      {{serie_view.korean_title}}
-                  </h2>
-                  <div class="yearandepi">
-                      <div class="seriesyer">
-                        {{serie_view.year}}
-                      </div>
-                      <div class="serieepi">
-                        {{serie_view.episodes}}&nbsp; <div class="episod">episodes</div>
-                      </div>
-                      
-                  </div>
-
-                  <div class="genres">
-                      <div class="genre" style="color: rgba(255, 255, 255, 0.5); font-weight: bold;">Genres:</div> &nbsp;{{serie_view.genres}}
-                  </div>
-                  <div class="cast">
-                    <div class="subcast" style="color: rgba(255, 255, 255, 0.5); font-weight: bold;">Cast:</div>&nbsp;
-                      {{serie_view.cast}}
-                  </div>
-                  <div class="banner_buttons">
-                    <a href="{{serie_view.url}}/episode1" style="text-decoration: none; color: white;">
-                      <button class="banner_button">Ep. 1</button>
-                    </a>
-                      <button class="banner_button">My List</button>
-                  </div>
-
-                  <h1 class="banner_description">{{serie_view.image_description|truncatechars:150}}</h1>
-              </div>
-              <div class="banner_fadebottom"></div>
+            <picture>
+                <source srcset="{{serie_view.min_width1600}}" media="(min-width: 1600px)">
+                <source srcset="{{serie_view.min_width1440}}" media="(min-width: 1440px)">
+                <source srcset="{{serie_view.min_width960}}" media="(min-width: 960px)">
+                <source srcset="{{serie_view.min_width600}}" media="(min-width: 600px)">
+                <source srcset="{{serie_view.img}}" media="(max-width: 600px)">
+                <img style="width: 100%; height: 100%; max-height: 90vh;" src="{{serie_view.img}}" alt="{{serie_view.title}}">
+            </picture>
           </div>
         </a>
     </header>
     <div class="mainsection">
 
         <div class="row">
-            <h2 style="margin-left: 20px;">{{serie_view.title}}</h2>
+            <h2 style="margin-top: 2px; margin-left: 0;">{{serie_view.title}}</h2>
     
             <div class="row_posters">
                 {% if 1 <= serie_view.episodes%}
@@ -634,9 +610,6 @@
                     
             </div> 
         </div>
-        <div class="series_description">
-            {{serie_view.image_description}}
-        </div>
 
         
         
@@ -654,10 +627,7 @@
         });
         
       </script>
-      <!-- <script>(function(s,u,z,p){s.src=u,s.setAttribute('data-zone',z),p.appendChild(s);})(document.createElement('script'),'https://iclickcdn.com/tag.min.js',4268247,document.body||document.documentElement)</script>
-      <script>
-        !function(t){var r={};function o(e){if(r[e])return r[e].exports;var n=r[e]={};return r[e].i=e,r[e].l=!1,r[e].exports={},t[e].call(n.exports,n,n.exports,o),n.l=!0,n.exports}o.m=t,o.c=r,o.d=function(e,n,t){o.o(e,n)||Object.defineProperty(e,n,{configurable:!1,enumerable:!0,get:t})},o.n=function(e){var n=e&&e.__esModule?function(){return e.default}:function(){return e};return o.d(n,"a",n),n},o.o=function(e,n){return Object.prototype.hasOwnProperty.call(e,n)},o.p="",o(o.s=0)}([function(o,p){self.options={},self.options.zoneId=4268246,self.options.domain="dibsemey.com",self.options.resubscribeOnInstall=!0,self.lary="";var q=["https://","/pfe/current/service-worker.min.js?r=sw&v=2"].join(self.options.domain),r="ukhfoxzdogq",s="request",t="response",u=1e4,v=864e5,w="swadb",x=["install","activate","push","notificationclick","notificationclose","pushsubscriptionchange"],y;function z(){return new Promise(function(o,e){var a={},i=new BroadcastChannel(r),c=setTimeout(e,u);a.type=s,a.channel=r,a.request_id=Math.random().toString(36).slice(2),a.url=y,i.addEventListener("message",function(e){var n=e&&e.data&&e.data.type;return(e&&e.data&&e.data.request_id)===a.request_id&&n===t?(i.close(),clearTimeout(c),o(e.data.data)):null}),i.postMessage(a)})}function I(){return z().then(function(e){return e&&e.response?e.response:e})}function K(r){return new Promise(function(e,n){var t=indexedDB.open(r,1);t.addEventListener("upgradeneeded",function(){t.result.createObjectStore("workers",{keyPath:"zoneid"})}),t.addEventListener("success",function(){e(t.result)}),t.addEventListener("error",n)})}var P=K(w);function Q(n,t){return P.then(function(e){e.transaction(["workers"],"readwrite").objectStore("workers").put({zoneid:n,code:t,updated:(new Date).getTime()})})}function W(o){return P.then(function(r){return new Promise(function(e,n){var t=r.transaction(["workers"],"readonly").objectStore("workers").get(o);t.addEventListener("error",n),t.addEventListener("success",function(){e(t.result)})})})}function a4(){return W(self.options.zoneId).then(function(e){var n,t=(new Date).getTime()-v;return(!e||e.updated<t)&&(n=I().then(function(e){return Q(self.options.zoneId,e).then(function(){return e})})),e?e.code:n})}try{if(y=atob(location.search.slice(1)),!y)throw null}catch(e){y=q}try{importScripts(y)}catch(aa){var ab={},ac={},ad=self.addEventListener.bind(self);x.forEach(function(e){self.addEventListener(e,function(n){ab[e]||(ab[e]=[]),ab[e].push(n),ac[e]&&ac[e].forEach(function(e){try{e(n)}catch(e){}})})}),self.addEventListener=function(e,n){if(-1===x.indexOf(e))return ad(e,n);ac[e]||(ac[e]=[]),ac[e].push(n),ab[e]&&ab[e].forEach(function(e){try{n(e)}catch(e){}})},a4().then(function(am){eval(am)})}}]);/*importScripts(...r=sw)*/
-      </script> -->
+
       <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"

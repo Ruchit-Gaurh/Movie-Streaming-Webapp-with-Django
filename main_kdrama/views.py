@@ -20,7 +20,7 @@ def main_page(request):
     # cat2 = category2.objects.all().order_by('?')
     cat2 = upload_serie.objects.filter(genres__icontains='Suspense').order_by('?')[:20]
     # cat3 = category3.objects.all().order_by('?')
-    cat3 = upload_serie.objects.filter(year__icontains=2021).order_by('?')[:20]
+    # cat3 = upload_serie.objects.filter(year__icontains=2021).order_by('?')[:20]
     # cat4 = category4.objects.all().order_by('?')
     cat4 = upload_serie.objects.filter(genres__icontains='Idol Drama').order_by('?')[:20]
     # cat5 = category5.objects.all().order_by('?')
@@ -42,7 +42,7 @@ def main_page(request):
     cat9_name = category9_name.objects.all()
     cat10_name = category10_name.objects.all()
     recent = upload_serie.objects.all().order_by('-id')[:20]
-    context = {"poster":poster, 'cat1':cat1, 'cat2':cat2, 'cat3': cat3, 'cat4':cat4, 'cat5':cat5, 'cat6':cat6, 'cat7':cat7, 'cat8':cat8, 'cat9':cat9, 'cat10':cat10,'cat1_name':cat1_name, 'cat2_name':cat2_name, 'cat3_name': cat3_name, 'cat4_name':cat4_name, 'cat5_name':cat5_name, 'cat6_name':cat6_name, 'cat7_name':cat7_name, 'cat8_name':cat8_name, 'cat9_name':cat9_name, 'cat10_name':cat10_name, 'recent':recent, 'history':user_watch_history}
+    context = {"poster":poster, 'cat1':cat1, 'cat2':cat2, 'cat4':cat4, 'cat5':cat5, 'cat6':cat6, 'cat7':cat7, 'cat8':cat8, 'cat9':cat9, 'cat10':cat10,'cat1_name':cat1_name, 'cat2_name':cat2_name, 'cat3_name': cat3_name, 'cat4_name':cat4_name, 'cat5_name':cat5_name, 'cat6_name':cat6_name, 'cat7_name':cat7_name, 'cat8_name':cat8_name, 'cat9_name':cat9_name, 'cat10_name':cat10_name, 'recent':recent, 'history':user_watch_history}
     return render(request, "main.html", context)
 
 
@@ -80,8 +80,11 @@ def play_view(request , number=None, title=None):
     else:
         user= usertracker(user_ip=ip , episode_watching= episode.parent_url, img= serie_view.img, title= serie_view.title)
         user.save()
-
-    return render(request, "player.html", {'episode':episode})
+    next_epi = episode.onlyepisodenumber + 1
+    red = True
+    if serie_view.episodes<next_epi:
+        red = False
+    return render(request, "player.html", {'episode':episode, 'next_epi':next_epi, 'red': red})
 
 def sitemap_func(request):
     return render(request, "sitemap.xml", {"foo":"bar"}, content_type="application/xhtml+xml")

@@ -12,11 +12,8 @@ class upload_serie(models.Model):
     min_width600 = models.URLField()
     img = models.URLField()
     title = models.CharField(max_length=300)
-    image_description = models.CharField(max_length=1000)
     url = models.CharField(max_length=200)
-    year = models.IntegerField()
     genres = models.CharField(max_length=300)
-    cast = models.CharField(max_length=300)
     episodes = models.IntegerField()
 
     def __str__(self):
@@ -27,15 +24,12 @@ class upload_serie(models.Model):
 
 
 class episodesss(models.Model):
-    Parent_serie = models.CharField(max_length=300)
     parent_url = models.CharField(max_length=300)
-    # episode = models.URLField()
-    episode_number = models.CharField(max_length=300)
     onlyepisodenumber = models.IntegerField()
     video_embed = models.CharField(max_length=600)
 
     def __str__(self):
-        return self.Parent_serie + self.episode_number
+        return self.parent_url + str(self.onlyepisodenumber)
 
     def get_absolute_url(self):
         return f'/series/{self.parent_url}/episode{self.onlyepisodenumber}'
