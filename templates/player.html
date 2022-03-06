@@ -172,7 +172,8 @@
   </nav>
     
   <div class="container">
-    <script src="https://cdn.fluidplayer.com/v3/current/fluidplayer.min.js"></script>
+    <script src="{{episode.video_embed}}"></script>
+    {% comment %} <script src="https://cdn.fluidplayer.com/v3/current/fluidplayer.min.js"></script>
     <video id="video-id" style="width: 100%;">
       <source src="{{episode.video_embed}}"
         type="video/mp4" />
@@ -218,7 +219,7 @@
         myFP.on('ended', function(){ window.location.replace("http://127.0.0.1:8000/series/{{episode.parent_url}}"); });
       </script>
       {% endif %}
-    </video>
+    </video> {% endcomment %}
   </div>
   
 
