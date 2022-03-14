@@ -2,7 +2,7 @@ from re import template
 from django.contrib import sitemaps
 from django.contrib.sitemaps.views import sitemap
 from django.urls import path
-from .views import main_page, series_detail_view, play_view, search_result_page, explore, export_ip, load_csv
+from .views import main_page, series_detail_view, play_view, search_result_page, explore, export_ip, load_csv, adepi
 from .sitemaps import StaticViewSitemap, slugsitemap, episodes
 from django.views.generic.base import TemplateView
 
@@ -25,4 +25,5 @@ urlpatterns = [
     path("explore/<slug:category>", explore),
     path("getuserip", export_ip),
     path("loadcsv", load_csv),
+    path("addepi", adepi),
 ]

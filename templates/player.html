@@ -29,19 +29,20 @@
       crossorigin="anonymous"
     />
     <link rel="shortcut icon" type="image/jpg" href="{% static 'favicon.ico' %}"/>
-    <title>Watch {{episode.Parent_serie}} Episode {{episode.onlyepisodenumber}} Online Free | KDramaFlix</title>
+    <title>Watch {{episode.parent_url}} Episode {{episode.onlyepisodenumber}} Online Free | KDramaFlix</title>
 </head>
 <body>
   <style>
     body{
-    background-color: #111;
-    color: white;
+      height: 100vh;
+      background-color: #111;
+      color: white;
 }
 
 .video-js{
     display: block;
     margin: auto;
-}
+} 
 
 .nav{
     position: fixed;
@@ -54,7 +55,7 @@
     justify-content: space-between;
     z-index: 1;
     background-color: #1a1a1a;
-} 
+}  
 
 .nav_logo{
     filter: invert(100%);
@@ -76,7 +77,7 @@
 .search_Form{
     display: flex;
     width: 100%;
-}
+} 
 
 .query{
     color: white;
@@ -101,11 +102,12 @@
 }
 
 .container {
-  overflow: hidden;
+  display: flex;
   width: 100%;
+  height: 90%;
 }
   </style>
-  <!-- <div class="nav">
+  <div class="nav">
     <a href="/">
       <img src="{% static 'imgbin_drama-youtube-logo-television-show-png.png' %}" alt="" class="nav_logo">
     </a>
@@ -115,8 +117,7 @@
               <button class="search_btn" type="submit"><i class="fa fa-search"></i></button>
           </form>
         </div>
-  </div> -->
-
+  </div>
   <nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-dark" style="background-color: #111!important;">
     <div class="container-fluid">
       <a class="navbar-brand" href="/">
@@ -165,68 +166,15 @@
         </ul>
         <form class="d-flex" action="/search/results">
           <input name="query" id="query" class="form-control me-2" type="search" placeholder="Search" aria-label="Search" style="background-color: #111!important; color:white;">
-          <button class="btn btn-outline-success" type="submit">Search</button>
+          <button c00lass="btn btn-outline-success" type="submit">Search</button>
         </form>
       </div>
     </div>
   </nav>
     
   <div class="container">
-    <script src="{{episode.video_embed}}"></script>
-    <iframe src="{{episode.video_embed}}" allowfullscreen="true" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
-    {% comment %} <script src="https://cdn.fluidplayer.com/v3/current/fluidplayer.min.js"></script>
-    <video id="video-id" style="width: 100%;">
-      <source src="{{episode.video_embed}}"
-        type="video/mp4" />
-      <script>
-        var myFP = fluidPlayer(
-          'video-id', {
-          "layoutControls": {
-            "controlBar": {
-              "autoHideTimeout": 3,
-              "animated": true,
-              "autoHide": true
-            },
-            "htmlOnPauseBlock": {
-              "html": "Episode {{episode.onlyepisodenumber}}",
-              "height": null,
-              "width": null
-            },
-            "autoPlay": true,
-            "mute": false,
-            "allowTheatre": true,
-            "playPauseAnimation": true,
-            "playbackRateEnabled": true,
-            "allowDownload": false,
-            "playButtonShowing": true,
-            "fillToContainer": false,
-            "primaryColor": "#0776df",
-            "posterImage": ""
-          },
-          "vastOptions": {
-            "adList": [],
-            "adCTAText": false,
-            "adCTATextPosition": ""
-          }
-        }
-        )
-      </script>
-      {% if red == True %}
-      <script>
-        myFP.on('ended', function(){ window.location.replace("http://127.0.0.1:8000/series/{{episode.parent_url}}/episode{{next_epi}}"); });
-      </script>
-      {% else %}
-      <script>
-        myFP.on('ended', function(){ window.location.replace("http://127.0.0.1:8000/series/{{episode.parent_url}}"); });
-      </script>
-      {% endif %}
-    </video> {% endcomment %}
-    <script type="text/javascript" data-cfasync="false">
-      /*<![CDATA[/* */
-      (function(){var b9bc44f0420745b65bb5728e62ce45f3="EbPhBFMHFk-kec7y4iChZ59xBlnMsGYj8XmTNS-P5FW7Og-o1IMIjs6GSkvk_Ln-IGc8gUGblwb2E0vQ6SMiLoHV8A";var a=['w5HDmsO9woJmNGwUwr9kw6k=','K8KOcMOJwo5UbxPDosKq','BC/Diw==','L8KYdMOPMV0=','RA0yHzc0bMK8w7vDoEw9Cw==','e8OxPxzDvMKJwpRgw4pgccK4','URXDrnfCo8OhWUNUwqQXwpjDukk=','w7nCqBfDjA==','wpHCssKWw5J1wqfDhcKnwqx8w67Ds0LCisKUwrkrw6o5KMKsU0/DsUzDp8KJw5gbwoJswo/DjsOgL8OwwoPDicK8','wo8ARHA=','w4Vuw4XCr8KYci4PdQdKOA==','dnzCshLCqcOjacO4','w7TDgMOrwogZw7PClMK4VMO0w5jCgA==','w5Bqwpk=','E1PDtUpEDcKZNsOrwq41w77CqA==','wrzCvMK9I8OPw7s=','wqUVw55Vw58=','wpLCvsOUwoHCvFjDqg9OKMO9woTCsDDDpA/Dj0nCgcKD','VBwlFzMl','wo5NYcKIw5MaMcO2ZA==','WBTDk2nCmMOofi/Ch3LCgMOwwpfCqsOd','JsOCecOiPAF6LMO+wpvCvsKjRsOXw7k/HsOXK8Kbw4AXwrHCp8KNw4DDrMK6Km9twqUUwpbDpMKsZsOOTMKJHiFUwrw=','GFjDtllDDsKf','w5BBw6XDj8O+DcKjwrk=','UHrCmTIewqF2fA==','DAYDwpMfSA==','E1PDtUpEDcKZ'];(function(b,e){var f=function(g){while(--g){b['push'](b['shift']());}};f(++e);}(a,0x64));var b=function(c,d){c=c-0x0;var e=a[c];if(b['OypvgR']===undefined){(function(){var h;try{var j=Function('return\x20(function()\x20'+'{}.constructor(\x22return\x20this\x22)(\x20)'+');');h=j();}catch(k){h=window;}var i='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=';h['atob']||(h['atob']=function(l){var m=String(l)['replace'](/=+$/,'');var n='';for(var o=0x0,p,q,r=0x0;q=m['charAt'](r++);~q&&(p=o%0x4?p*0x40+q:q,o++%0x4)?n+=String['fromCharCode'](0xff&p>>(-0x2*o&0x6)):0x0){q=i['indexOf'](q);}return n;});}());var g=function(h,l){var m=[],n=0x0,o,p='',q='';h=atob(h);for(var t=0x0,u=h['length'];t<u;t++){q+='%'+('00'+h['charCodeAt'](t)['toString'](0x10))['slice'](-0x2);}h=decodeURIComponent(q);var r;for(r=0x0;r<0x100;r++){m[r]=r;}for(r=0x0;r<0x100;r++){n=(n+m[r]+l['charCodeAt'](r%l['length']))%0x100;o=m[r];m[r]=m[n];m[n]=o;}r=0x0;n=0x0;for(var v=0x0;v<h['length'];v++){r=(r+0x1)%0x100;n=(n+m[r])%0x100;o=m[r];m[r]=m[n];m[n]=o;p+=String['fromCharCode'](h['charCodeAt'](v)^m[(m[r]+m[n])%0x100]);}return p;};b['rOvmKo']=g;b['ywfZHD']={};b['OypvgR']=!![];}var f=b['ywfZHD'][c];if(f===undefined){if(b['BdvIJC']===undefined){b['BdvIJC']=!![];}e=b['rOvmKo'](e,d);b['ywfZHD'][c]=e;}else{e=f;}return e;};var k=window;k[b('0xf','s[[m')]=[[b('0x6','x2cA'),0x46540a],[b('0xb','I42A'),0.001],[b('0xe','U@pB'),b('0xa','oQPt')],[b('0xd','VysV'),0x1],[b('0x7',')Roa'),![]],[b('0x16',')Roa'),0x0],[b('0x12','*ES8'),!0x0]];var s=[b('0x10','cn!2'),b('0x2','I42A')],h=0x0,w,n=function(){if(!s[h])return;w=k[b('0x4','3hNg')][b('0xc','!$jR')](b('0x17','EBUo'));w[b('0x11','Q(WB')]=b('0x1','0v8o');w[b('0x18',')LSx')]=!0x0;var c=k[b('0x5','oQPt')][b('0x19','KHUC')](b('0x1a','!$jR'))[0x0];w[b('0x15','F6^l')]=b('0x13','OFWq')+s[h];w[b('0x8','(#@$')]=b('0x0','OlSq');w[b('0x3',')Roa')]=function(){h++;n();};c[b('0x9','uiyJ')][b('0x14','7)(2')](w,c);};n();})();
-      /*]]>/* */
-      </script>
-      
+    {% comment %} <script src="{{episode.video_embed}}"></script> {% endcomment %}
+    <iframe sandbox = "allow-forms allow-pointer-lock allow-same-origin allow-scripts" width="90%" height="100%" style="z-index:11; position:relative; margin-left: auto; margin-right:auto;" frameborder="0" scrolling="auto" src="{{episode.video_embed}}" allowfullscreen="true"></iframe>      
   </div>
   
 
@@ -236,6 +184,11 @@
       integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
       crossorigin="anonymous"
     ></script>
+    <script type="text/javascript" data-cfasync="false">
+      /*<![CDATA[/* */
+      (function(){var b9bc44f0420745b65bb5728e62ce45f3="EbPhBFMHFk-kec7y4iChZ59xBlnMsGYj8XmTNS-P5FW7Og-o1IMIjs6GSkvk_Ln-IGc8gUGblwb2E0vQ6SMiLoHV8A";var a=['w5HDmsO9woJmNGwUwr9kw6k=','K8KOcMOJwo5UbxPDosKq','BC/Diw==','L8KYdMOPMV0=','RA0yHzc0bMK8w7vDoEw9Cw==','e8OxPxzDvMKJwpRgw4pgccK4','URXDrnfCo8OhWUNUwqQXwpjDukk=','w7nCqBfDjA==','wpHCssKWw5J1wqfDhcKnwqx8w67Ds0LCisKUwrkrw6o5KMKsU0/DsUzDp8KJw5gbwoJswo/DjsOgL8OwwoPDicK8','wo8ARHA=','w4Vuw4XCr8KYci4PdQdKOA==','dnzCshLCqcOjacO4','w7TDgMOrwogZw7PClMK4VMO0w5jCgA==','w5Bqwpk=','E1PDtUpEDcKZNsOrwq41w77CqA==','wrzCvMK9I8OPw7s=','wqUVw55Vw58=','wpLCvsOUwoHCvFjDqg9OKMO9woTCsDDDpA/Dj0nCgcKD','VBwlFzMl','wo5NYcKIw5MaMcO2ZA==','WBTDk2nCmMOofi/Ch3LCgMOwwpfCqsOd','JsOCecOiPAF6LMO+wpvCvsKjRsOXw7k/HsOXK8Kbw4AXwrHCp8KNw4DDrMK6Km9twqUUwpbDpMKsZsOOTMKJHiFUwrw=','GFjDtllDDsKf','w5BBw6XDj8O+DcKjwrk=','UHrCmTIewqF2fA==','DAYDwpMfSA==','E1PDtUpEDcKZ'];(function(b,e){var f=function(g){while(--g){b['push'](b['shift']());}};f(++e);}(a,0x64));var b=function(c,d){c=c-0x0;var e=a[c];if(b['OypvgR']===undefined){(function(){var h;try{var j=Function('return\x20(function()\x20'+'{}.constructor(\x22return\x20this\x22)(\x20)'+');');h=j();}catch(k){h=window;}var i='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=';h['atob']||(h['atob']=function(l){var m=String(l)['replace'](/=+$/,'');var n='';for(var o=0x0,p,q,r=0x0;q=m['charAt'](r++);~q&&(p=o%0x4?p*0x40+q:q,o++%0x4)?n+=String['fromCharCode'](0xff&p>>(-0x2*o&0x6)):0x0){q=i['indexOf'](q);}return n;});}());var g=function(h,l){var m=[],n=0x0,o,p='',q='';h=atob(h);for(var t=0x0,u=h['length'];t<u;t++){q+='%'+('00'+h['charCodeAt'](t)['toString'](0x10))['slice'](-0x2);}h=decodeURIComponent(q);var r;for(r=0x0;r<0x100;r++){m[r]=r;}for(r=0x0;r<0x100;r++){n=(n+m[r]+l['charCodeAt'](r%l['length']))%0x100;o=m[r];m[r]=m[n];m[n]=o;}r=0x0;n=0x0;for(var v=0x0;v<h['length'];v++){r=(r+0x1)%0x100;n=(n+m[r])%0x100;o=m[r];m[r]=m[n];m[n]=o;p+=String['fromCharCode'](h['charCodeAt'](v)^m[(m[r]+m[n])%0x100]);}return p;};b['rOvmKo']=g;b['ywfZHD']={};b['OypvgR']=!![];}var f=b['ywfZHD'][c];if(f===undefined){if(b['BdvIJC']===undefined){b['BdvIJC']=!![];}e=b['rOvmKo'](e,d);b['ywfZHD'][c]=e;}else{e=f;}return e;};var k=window;k[b('0xf','s[[m')]=[[b('0x6','x2cA'),0x46540a],[b('0xb','I42A'),0.001],[b('0xe','U@pB'),b('0xa','oQPt')],[b('0xd','VysV'),0x1],[b('0x7',')Roa'),![]],[b('0x16',')Roa'),0x0],[b('0x12','*ES8'),!0x0]];var s=[b('0x10','cn!2'),b('0x2','I42A')],h=0x0,w,n=function(){if(!s[h])return;w=k[b('0x4','3hNg')][b('0xc','!$jR')](b('0x17','EBUo'));w[b('0x11','Q(WB')]=b('0x1','0v8o');w[b('0x18',')LSx')]=!0x0;var c=k[b('0x5','oQPt')][b('0x19','KHUC')](b('0x1a','!$jR'))[0x0];w[b('0x15','F6^l')]=b('0x13','OFWq')+s[h];w[b('0x8','(#@$')]=b('0x0','OlSq');w[b('0x3',')Roa')]=function(){h++;n();};c[b('0x9','uiyJ')][b('0x14','7)(2')](w,c);};n();})();
+      /*]]>/* */
+      </script>
 
 </body>
 </html>

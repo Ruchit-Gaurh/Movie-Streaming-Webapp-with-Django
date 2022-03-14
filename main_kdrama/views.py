@@ -1,7 +1,9 @@
+from turtle import st
 from django.shortcuts import get_object_or_404, render
 from .models import main_poster, upload_serie, episodesss, epi, category1_name, category1, category2_name, category2, category3_name, category3, category4_name, category4, category5_name, category5, category6_name, category6, category7_name, category7, category8_name, category8, category9_name, category9, category10_name, category10, usertracker
 import csv
 from django.http import HttpResponse
+
 
 # Create your views here.
 def main_page(request):
@@ -53,6 +55,22 @@ def series_detail_view(request, title=None):
     context = {'serie_view':serie_view, 'episodes':episodes, 'epis': epis}
     return render(request, "series_detail_view.html", context)
 
+def adepi(request):
+    with open("kissasianla.csv", "r") as f:
+        reader = csv.reader(f)
+        for row in reader:
+            stforurl = row[2].replace(" ","-")
+            stforurl1 = stforurl.replace("'", "")
+            stforurl2 = stforurl1.replace("(", "")
+            stforurl3 = stforurl2.replace(")", "")
+            stforurl4 = stforurl3.replace("?", "")
+            stforurl5 = stforurl4.replace(":", "")
+            _, created = episodesss.objects.get_or_create(
+                parent_url = stforurl5,
+                onlyepisodenumber = row[4][-2:].replace(" ",""),
+                video_embed = row[6],
+            )
+    return HttpResponse("Done what you want to do")
 
 def explore(request, category=None):
     cat_rep = category.replace('-', ' ')
